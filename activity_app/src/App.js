@@ -1,14 +1,22 @@
 import './App.css';
-import NavBar from "./components/NavBar";
 import Feed from "./components/Feed";
+import Post from "./components/Post";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
+    
   return (
-    <div className="App">
-      <NavBar />
-      <Feed />
-    </div>
-  );
+      <Router>
+          <div className="App">
+              <Switch>
+                  <Route path="/" exact component={Feed}/>
+                  <Route path="/feed" exact component={Feed}/>
+                  <Route path="/post" exact component={Post}/>
+              </Switch>
+          </div>
+      </Router>
+  )
+  
 }
 
 export default App;

@@ -3,10 +3,12 @@ import Activity from "./Activity";
 import ScrollMenu from "./ScrollMenu";
 import SearchBar from "./SearchBar";
 import Footer from "./Footer";
+import NavBar from "./NavBar.js";
 
 function Feed() {
   return (
     <>
+      <NavBar />
       <ScrollMenu />
       <SearchBar />
       <div className="act-feed">
