@@ -23,18 +23,14 @@ button {cursor: pointer;}
 }
 
 .nav-bar {
-  width: 414px;
-  height: 96px;
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   margin: auto;
   justify-content: space-around;
   align-items: flex-end;
   padding-bottom: 16px;
-  background: #4892bc;
-  position: fixed;
-  top: 0;
-  
+  background: #4892bc;  
 }
 
 .avatar {
