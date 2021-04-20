@@ -8,7 +8,7 @@ export default function DateEntry(props) {
     // let n = d.toISOString();
 
     return (
-        <div className="form-entry">
+        <div className="date-field">
             <label for="date-input" className="date-label">{props.labelWord}</label>
             <input type="datetime-local" className="date-input"/>
             {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>

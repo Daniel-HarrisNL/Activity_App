@@ -8,28 +8,30 @@ export default function Form() {
     return (
         <div className="form">
             <FormEntry
-                labelWord="Title: *"
-                placeholderWord="Title of post"
+                // labelWord="Title: *"
+                placeholderWord="* Title of post"
             />
             <FormEntry
-                labelWord="Category: *"
-                placeholderWord="Category of post"
+                // labelWord="Category: *"
+                placeholderWord="* Category of post"
             />
             <FormEntry
-                labelWord="Location: "
-                placeholderWord="Location (optional)"
+                // labelWord="Location: "
+                placeholderWord="* Location (optional)"
             />
-            <DateEntry
-                labelWord="Start date/time: *"
-            />
-            <DateEntry
-                labelWord="End date/time: "
-            />
+            <div className="date-entry">
+              <DateEntry
+                labelWord="* Start date/time:"
+              />
+              <DateEntry
+                labelWord="* End date/time:"
+              />
+            </div>
             <div className="required">* Required fields</div>
             <TextArea></TextArea>
 
-            <div className="attached">Attached Media:</div>
-            <img className="pin" src={Pin} alt="paper clip"></img>
+            <div className="attached">Attached Media:
+            <img className="pin" src={Pin} alt="Attached Media" /></div>
         </div>
 
     )

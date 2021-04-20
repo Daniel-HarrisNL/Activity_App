@@ -1,12 +1,15 @@
-body {
-  background-color: #1a3a4c;
-}
+html {font-size: 16px;}
+body {background-color: #1a3a4c;}
+
+button {cursor: pointer;}
 
 .App {
   background-color: #ffffff;
   text-align: center;
   max-width: 414px;
   margin: 0 auto;
+  height: 100%;
+  overflow: auto;
 }
 
 .footer {
@@ -20,7 +23,7 @@ body {
 }
 
 .nav-bar {
-  width: 100%;
+  width: 414px;
   height: 96px;
   display: flex;
   flex-flow: row nowrap;
@@ -29,6 +32,9 @@ body {
   align-items: flex-end;
   padding-bottom: 16px;
   background: #4892bc;
+  position: fixed;
+  top: 0;
+  
 }
 
 .avatar {
@@ -190,8 +196,8 @@ h2 {
 }
 
 .form-input {
-  width: 90%;
-  height: 20px;
+  width: 88%;
+  height: 32px;
   border-radius: 6px;
   border-color: rgba(0, 0, 0, 0.25);
   align-self: center;
@@ -204,14 +210,27 @@ h2 {
 
 .form-input::placeholder {
   font-style: italic;
+  font-size: 1rem;
+  padding: 0 8px;
+}
+
+.date-entry {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.date-field {
+  width: 40%;
 }
 
 .date-input {
-  width: 90%;
-  height: 20px;
+  width: 88%;
+  height: 32px;
   border-radius: 6px;
   border-color: rgba(0, 0, 0, 0.25);
-  align-self: center;
+  text-align: center;
 }
 
 .date-label {
@@ -219,8 +238,13 @@ h2 {
   padding: 0px 0px 4px 0px;
 }
 
-.date-input::placeholder {
+
+.date-input { display: inline-block;}
+
+.date-input[type="datetime-local"] {
   font-style: italic;
+  font-size: 0.675rem;
+  padding: 0 8px;
 }
 
 .text-area-div {
@@ -230,7 +254,7 @@ h2 {
 }
 
 .text-area {
-  width: 90%;
+  width: 88%;
   height: 15vh;
   border-radius: 6px 6px 0px 0px;
   margin: 12px 0px 0px 0px;
@@ -244,27 +268,32 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
   color: white;
+  padding: 8px 8px;
+  font-size: 1rem;
 }
 
 .tags {
   height: 40px;
   background-color: rgba(0, 0, 0, 0.16);
-  width: 91%;
+  width: 88%;
   display: flex;
   flex-direction: row;
   align-self: center;
   border-radius: 0px 0px 6px 6px;
+  padding-left: 4px;
 }
 
 .tags-btn {
+  display: flex;
   background-color: #354787;
   color: white;
   height: 32px;
   width: 32px;
   border-radius: 8px;
   border: none;
-  margin-left: 8px;
-  align-self: center;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .tags-label {
@@ -290,19 +319,22 @@ h2 {
   font-size: 0.9rem;
   font-style: italic;
   text-align: left;
-  margin-left: 20px;
+  margin: 8px 0 0 24px;
 }
 
 .attached {
+  display: flex;
+  flex-direction: column;
+  width: 88%;
   font-size: 0.9rem;
   text-align: left;
-  margin-left: 20px;
+  margin: 0 0 16px 24px;
 }
 
 .pin {
-  margin: 20px 0px 20px -300px;
-  /* margin-left: -100px;
-  margin-bottom: 20px; */
+  border: 0 solid black;
+  height: 32px;
+  width: 32px;
 }
 
 .post-buttons {
