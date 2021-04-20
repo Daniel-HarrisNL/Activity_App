@@ -3,13 +3,6 @@ import "../App.css";
 import { v4 as uuidv4 } from 'uuid'; // then use uuidv4() to insert id
 
 import Comments from "../assets/chat.png";
-import Avatar1 from "../assets/avatar1.png";
-import Avatar2 from "../assets/avatar2.png";
-// import Avatar4 from "../assets/avatar4.png";
-// import Avatar5 from "../assets/avatar5.png";
-// import Avatar6 from "../assets/avatar6.png";
-// import Avatar7 from "../assets/avatar7.png";
-
 
 function Activity(props) {
   let img_desc = props.img_desc;
