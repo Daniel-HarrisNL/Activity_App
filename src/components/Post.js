@@ -1,23 +1,21 @@
 import React from 'react'
-import NavBar from "./NavBar.js";
-import FormEntry from './FormEntry';
+import NavBar from "./NavBar";
+import Form from './Form';
+import Buttons from './Buttons';
+import Footer from './Footer';
+import { Link } from 'react-router-dom';
 
 export default function Post() {
     return (
         <>
-            <NavBar />
-            <FormEntry
-                labelWord="Title: *"
-                placeholderWord="Title of post"
-            />
-            <FormEntry
-                labelWord="Category: *"
-                placeholderWord="Category of post"
-            />
-            <FormEntry
-                labelWord="Location: "
-                placeholderWord="Location (optional)"
-            />
+            <NavBar 
+            nav_title="NEW ACTIVITY"/>
+            <Form />
+            <Link to="/singlepost" >
+            <Buttons></Buttons>
+            </Link>
+            <Footer />
+            
         </>
     )
 }

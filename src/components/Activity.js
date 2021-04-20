@@ -21,10 +21,6 @@ function Activity(props) {
         <div className="act-title">{props.title}</div>
         <div className="act-avatars">
           <img className="act-comment" src={Comments} alt="comments" />
-          <div className="act-followers">
-            <img className="act-avatar" src={Avatar1} alt="follower" />
-            <img className="act-avatar" src={Avatar2} alt="follower" />
-          </div>
         </div>
       </div>
     </div>
