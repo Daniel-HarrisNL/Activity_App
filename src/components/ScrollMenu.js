@@ -1,7 +1,8 @@
 import React from 'react';
-import {useState} from 'react'
-import {Drawer, List, ListItem,ListItemText} from '@material-ui/core'
+import { useState } from 'react'
+import { Drawer, List, ListItem, ListItemText } from '@material-ui/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Gym from "../assets/barbell.png";
 import Games from "../assets/controller.png";
 import Cafe from "../assets/coffee.png";
@@ -54,18 +55,17 @@ function ScrollMenu() {
               <span className="cat-name">MeetUp</span>
             </ListItem>
             <ListItem className="scroll-cat">
-                <img className="cat-pic" src={Science} alt="Science" />
-                <span className="cat-name">Science</span>
+              <img className="cat-pic" src={Science} alt="Science" />
+              <span className="cat-name">Science</span>
             </ListItem>
             <ListItem className="scroll-cat">
-                    <img className="cat-pic" src={Chat} alt="Chat" />
-                    <span className="cat-name">Chat</span>
+              <img className="cat-pic" src={Chat} alt="Chat" />
+              <span className="cat-name">Chat</span>
             </ListItem>
           </List>
         </Drawer>
       </div>
     )
-
 }
 
 export default ScrollMenu;
