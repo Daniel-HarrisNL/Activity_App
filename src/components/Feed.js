@@ -6,6 +6,45 @@ import NavBar from "./NavBar.js";
 import { Link } from "react-router-dom";
 
 function Feed() {
+  let feedArray = [
+    {
+      "title": "Looking for biking friends for a trip this weekend",
+      "img_desc": "biking",
+      "category": "outdoor"
+    },
+    {
+      "title": "Weekly Fortnite Party",
+      "img_desc": "fortnite",
+      "category": "games"
+    },
+    {
+      "title": "First time rock climbing group going this weekend, available to all.",
+      "img_desc": "rock,climbing",
+      "category": "outdoor"
+    },
+    {
+      "title": "Yoga class - 3 times a week",
+      "img_desc": "yoga",
+      "category": "gym"
+    },
+    {
+      "title": "Anyone want a fishing buddy?",
+      "img_desc": "fishing",
+      "category": "outdoor"
+    },
+    {
+      "title": "Poetry Open Night",
+      "img_desc": "poetry",
+      "category": "cafe"
+    },
+    {
+      "title": "Swim group, we meet every 2nd Thursday.",
+      "img_desc": "swimming",
+      "category": "sports"
+    }
+  ];
+
+
   return (
     <>
       <div className="search">
@@ -13,28 +52,21 @@ function Feed() {
         <SearchBar />
       </div>
       <div className="act-feed">
-        <Link style={{textDecoration: 'none', color: 'inherit'}} to="/singlepost">
-        <Activity 
-          img_desc="biking"
-          title="Looking for biking friends for a trip this weekend"
-        />
+      <Link style={{textDecoration: 'none', color: 'inherit'}} to="/singlepost">
+        {feedArray.map((e)=>{
+          return (
+            <Activity 
+              img_desc={e.img_desc}
+              title={e.title}
+            />
+            );
+          })
+        }
         </Link>
-        <Activity 
-          img_desc="rock,climbing"
-          title="First time rock climbing group going this weekend, available to all."
-        />
-        <Activity 
-          img_desc="fishing"
-          title="Anyone want a fishing buddy?"
-        />
-        <Activity 
-          img_desc="swimming"
-          title="Swim group, we meet every 2nd Thursday."
-        />
       </div>
       <div className="post">
         <Link to="/post">
-          <button className="blue-btn large">NEW POST</button>
+          <button className="blue-btn large">New Post</button>
         </Link>
       </div>
     </>
