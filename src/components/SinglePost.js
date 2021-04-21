@@ -1,15 +1,14 @@
 import React from 'react'
 import NavBar from "./NavBar.js";
-import Form from './Form';
-import Buttons from './Buttons';
+
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Divider } from '@material-ui/core';
-import clsx from 'clsx';
+
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
+
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 
@@ -21,9 +20,10 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import MessageOutlinedIcon from '@material-ui/icons/MessageOutlined';
+import ReplyCard from './ReplyCard';
 
 
-// import avatar from './assets/avatar.png';
+import avatar from '../assets/avatar.png';
 
 
 
@@ -48,7 +48,7 @@ const theme = createMuiTheme({
   
   const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 360,
+      maxWidth: 390,
       background: '#4892BC',
       border: '1px solid rgba(0, 0, 0, 0.28)',
       boxSizing: 'border-box',
@@ -59,7 +59,7 @@ const theme = createMuiTheme({
     },
     media: {
       height: 0,
-      paddingTop: '56.25%', // 16:9
+      paddingTop: '56.25%',
     },
     title: {
       color: 'white',
@@ -86,21 +86,16 @@ export default function CommentCard() {
   
 
     const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+    
+  
     return (
-        <div>
-    <NavBar 
-            nav_title="EVENT"/>
+        <div className="main-ext">
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar src="./assets/avatar.png" aria-label="avatar" className={classes.avatar}> 
+          <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
            
-          </Avatar>
+         
         }
         className={classes.title}
         title="Looking for biking friends"
@@ -126,12 +121,10 @@ export default function CommentCard() {
       </CardActions>
       
     </Card>
-    <Link to="/feed" >
-    <Footer />
-    </Link>
+    <ReplyCard/>
     </div>
     )
-}
+};
 
 
 

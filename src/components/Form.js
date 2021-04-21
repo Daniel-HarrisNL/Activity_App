@@ -6,7 +6,7 @@ import Pin from '../assets/pin.png';
 
 export default function Form() {
     return (
-        <div className="form">
+        <div className="main-ext">
             <FormEntry
                 // labelWord="Title: *"
                 placeholderWord="* Title of post"

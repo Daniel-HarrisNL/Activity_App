@@ -1,21 +1,31 @@
 import './App.css';
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+
 import Feed from "./components/Feed";
 import Post from "./components/Post";
 import SinglePost from "./components/SinglePost";
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
-    
   return (
-    <Router>
+    <Router basename="/activity-app">
       <div className="App">
-        <Switch>
+        <div className="header">
+          <NavBar nav_title="Activity Finder" />
+        </div>
+        <div className="main">
+          <Switch>
             <Route path="/" exact component={Feed}/>
-            <Route path="/feed" exact component={Feed}/>
-            <Route path="/post" exact component={Post}/>
-            <Route path="/singlepost" exact component={SinglePost} />
-        </Switch>
+            <Route path="/feed"  component={Feed} />
+            <Route path="/post"  component={Post}/>
+            <Route path="/singlepost"  component={SinglePost} />
+          </Switch>
+        </div>
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     </Router>
   )
