@@ -17,10 +17,10 @@ function App() {
         </div>
         <div className="main">
           <Switch>
-            <Route path="/" exact component={Feed}/>
-            <Route path="/feed"  component={Feed} />
-            <Route path="/post"  component={Post}/>
-            <Route path="/singlepost"  component={SinglePost} />
+            <Route path="/"   exact   component={Feed}/>
+            <Route path="/feed"       component={Feed} />
+            <Route path="/post"       component={Post}/>
+            <Route path="/singlepost" component={SinglePost} />
           </Switch>
         </div>
         <div className="footer">

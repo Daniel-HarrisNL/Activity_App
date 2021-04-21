@@ -94,8 +94,6 @@ export default function CommentCard() {
       <CardHeader
         avatar={
           <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
-           
-         
         }
         className={classes.title}
         title="Looking for biking friends"
