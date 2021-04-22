@@ -3,8 +3,8 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
 import Feed from "./components/Feed/Feed";
-import Post from "./components/Create/Post";
-import SinglePost from "./components/Posting/SinglePost";
+import Post from "./components/CreatePost/Post";
+import SinglePost from "./components/ReadPost/SinglePost";
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
