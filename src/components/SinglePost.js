@@ -1,8 +1,5 @@
 import React from 'react'
-import NavBar from "./NavBar.js";
 
-import Footer from './Footer';
-import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Divider } from '@material-ui/core';
 
@@ -63,8 +60,6 @@ const theme = createMuiTheme({
     },
     title: {
       color: 'white',
-      fontWeight: '500',
-      fontSize:1000
     },
     dividerColor: {
       backgroundColor: 'white',
@@ -85,43 +80,45 @@ const theme = createMuiTheme({
   
 
 export default function CommentCard() {
+
+  
   
 
     const classes = useStyles();
     
   
     return (
-      <div className="main-ext">
-      <Card className={classes.root}>
-        <CardHeader
-          avatar={
-            <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
-          }
-          className={classes.title}
-          title="Looking for biking friends"
-          subheader="TimeStamp Placeholder"
-        />
-        <Divider className={classes.dividerColor} />
-        <CardContent>
-          <ThemeProvider theme={theme}>
-          <Typography variant="body2" color="primary" component="p" className={classes.textArea}>
-          “Hey all!  I am looking to organize a biking trip for this weekend.  Hoping to find a few friends who are interested.”
-          </Typography>
-          </ThemeProvider>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="I'm interested">
-            <EmojiEmotionsIcon style={{color: 'yellow'}} /> <h6 style={{color: 'lightGrey'}} >-I'm Interested!</h6>
-          </IconButton>
-          <IconButton aria-label="comment">
-            <MessageOutlinedIcon fontSize="large" style={{color: 'white'}} />
-            <h6 style={{color: 'black'}} >-Comment</h6>
-          </IconButton>
-        
-        </CardActions>
-        
-      </Card>
-      <ReplyCard/>
+        <div className="main-ext">
+    <Card className={classes.root}>
+      <CardHeader
+        avatar={
+          <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
+        }
+        className={classes.title}
+        title="Looking for biking friends"
+        subheader="TimeStamp Placeholder"
+      />
+      <Divider className={classes.dividerColor} />
+      <CardContent>
+        <ThemeProvider theme={theme}>
+        <Typography variant="body2" color="primary" component="p" className={classes.textArea}>
+        “Hey all!  I am looking to organize a biking trip for this weekend.  Hoping to find a few friends who are interested.”
+        </Typography>
+        </ThemeProvider>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="I'm interested">
+          <EmojiEmotionsIcon style={{color: 'yellow'}} /> <h6 style={{color: 'lightGrey'}} >-I'm Interested!</h6>
+        </IconButton>
+        <IconButton aria-label="comment">
+          <MessageOutlinedIcon fontSize="large" style={{color: 'white'}} />
+          <h6 style={{color: 'black'}} >-Comment</h6>
+        </IconButton>
+      
+      </CardActions>
+      
+    </Card>
+    <ReplyCard/>
     </div>
     )
 };
