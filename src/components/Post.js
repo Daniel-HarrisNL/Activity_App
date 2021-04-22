@@ -8,7 +8,7 @@ export default function Post() {
         <>
             <Form />
             <Link to="/singlepost" >
-            <Buttons></Buttons>
+              <Buttons></Buttons>
             </Link>            
         </>
     )
