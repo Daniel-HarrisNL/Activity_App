@@ -63,6 +63,8 @@ const theme = createMuiTheme({
     },
     title: {
       color: 'white',
+      fontWeight: '500',
+      fontSize:1000
     },
     dividerColor: {
       backgroundColor: 'white',
@@ -98,6 +100,7 @@ export default function CommentCard() {
         className={classes.title}
         title="Looking for biking friends"
         subheader="TimeStamp Placeholder"
+        variant="h2"
       />
       <Divider className={classes.dividerColor} />
       <CardContent>

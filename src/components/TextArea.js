@@ -1,10 +1,18 @@
 import React from 'react';
 import Plus from "../assets/plus.png";
+import TextField from '@material-ui/core/TextField';
 
 export default function TextArea() {
   return (
     <div className="text-area-div">
-      <textarea className="text-area" placeholder="Message..."></textarea>
+      <TextField
+        label="Description"
+        multiline
+        rows={4}
+        variant="outlined"
+        fullWidth={true}
+        required={true}
+      />
       <div className="tags">
         <button className="tags-btn"><img className="plus-img" src={Plus} alt="+" height="24px"/></button>
         <label className="tags-label">Tags:</label>

@@ -1,13 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 export default function Buttons() {
+    let history = useHistory();
+	
     return (
         <div className="post-buttons">
-            <Link to="/feed">
-            <button className="black-btn large">Cancel</button>
-            </Link>
-            <button className="blue-btn large">Submit</button>
+            
+            <button className="black-btn large" onClick={()=>history.push("/feed")}> Cancel</button>
+           
+            <button className="blue-btn large" onClick={()=>history.push("/singlepost")}>Submit</button>
         </div>
     )
 }

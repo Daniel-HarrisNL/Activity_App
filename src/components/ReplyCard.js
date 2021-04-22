@@ -43,7 +43,7 @@ function ReplyCard() {
             </Grid>
             <Grid justifyContent="left" item xs zeroMinWidth>
               <h4 style={{ margin: 0, textAlign: "left" }}>Jane Doe</h4>
-              <p style={{ textAlign: "left" }}> Where is this happening? How long will we be gone, and what should we bring?sdvsvdsvsdsd d s dvsd vs vd sd vdsvdsvdsvdsvsdv sdv ds vds
+              <p style={{ textAlign: "left" }}> Where should we meet?
                 {" "}
               </p>
               <p style={{ textAlign: "left", color: "gray" }}>
