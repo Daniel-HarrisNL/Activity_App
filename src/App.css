@@ -40,7 +40,8 @@ button {cursor: pointer;}
 
 .search {
   grid-area: search;
-  margin: 8px 0 8px 0;
+  padding: 8px 0 8px 0;
+  border-bottom: 1px solid #DDDDDDAA;
 }
 
 .feed-container {
@@ -64,7 +65,8 @@ button {cursor: pointer;}
 
 .post {
   grid-area: post;
-  margin: 8px 0;
+  padding: 8px 0;
+  border-top: 0.5px solid #DDDDDDAA;  
 }
 
 .footer {
@@ -82,7 +84,8 @@ button {cursor: pointer;}
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  background: #4892bc;  
+  background: #4892bc;
+  border-bottom: 0.5px solid #DDDDDDAA;  
 }
 
 .avatar {
