@@ -63,6 +63,8 @@ const theme = createMuiTheme({
     },
     title: {
       color: 'white',
+      fontWeight: '500',
+      fontSize:1000
     },
     dividerColor: {
       backgroundColor: 'white',

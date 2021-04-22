@@ -26,7 +26,9 @@ button {cursor: pointer;}
 
 .main {
   grid-area: main;
-  overflow: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
@@ -53,6 +55,11 @@ button {cursor: pointer;}
 .act-feed {
   grid-area: feed;
   overflow: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.act-feed::-webkit-scrollbar {
+  display: none;
 }
 
 .post {
@@ -71,7 +78,6 @@ button {cursor: pointer;}
 .nav-bar {
   width: calc(100%);
   display: flex;
-  flex-flow: row nowrap;
   margin: auto;
   justify-content: space-between;
   align-items: center;
@@ -84,12 +90,35 @@ button {cursor: pointer;}
 }
 
 .main-menu {
+  display: flex;
+  align-items: center;
+  padding-inline: 8px;
+  justify-content: center;
   height: 48px;
+  color: white;
 }
 
 .main-ext {
   grid-column: 1 / 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 8px;
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+.stretched {
+  margin-top: 8px;
+  height: 672px;
+}
+
+.footer-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* -------- Feed Styling ------------------------------------------------------------ */
@@ -264,9 +293,10 @@ h2 {
 
 .date-entry {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  justify-content: space-around;
+  height: 120px;
+  justify-content: space-between;
 }
 
 .date-field {
@@ -325,8 +355,7 @@ h2 {
 
 .tags {
   height: 40px;
-  background-color: rgba(0, 0, 0, 0.16);
-  width: 88%;
+  width: 99%;
   display: flex;
   flex-direction: row;
   align-self: center;
@@ -367,10 +396,10 @@ h2 {
 
 .required {
   color: gray;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-style: italic;
   text-align: left;
-  margin: 8px 0 0 24px;
+ 
 }
 
 .attached {
@@ -392,7 +421,8 @@ h2 {
 .post-buttons {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 8px;
 }
 
 .media-buttons {
@@ -412,3 +442,4 @@ h2 {
   border-radius: 8px;
   cursor: pointer;
 }
+
