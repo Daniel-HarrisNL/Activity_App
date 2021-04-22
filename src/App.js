@@ -18,7 +18,8 @@ function App() {
         <div className="main">
           <Switch>
             <Route path="/"   exact   component={Feed}/>
-            <Route path="/feed"       component={Feed} />
+            <Route path="/feed" exact component={Feed} />
+            <Route path="/feed/:cat"  component={Feed} />
             <Route path="/post"       component={Post}/>
             <Route path="/singlepost" component={SinglePost} />
           </Switch>

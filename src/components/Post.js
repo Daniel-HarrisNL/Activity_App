@@ -6,7 +6,9 @@ export default function Post() {
     return (
         <>
             <Form />
-            <Buttons ></Buttons>     
+            <Link to="/singlepost" >
+              <Buttons></Buttons>
+            </Link>            
         </>
     )
 }
