@@ -13,8 +13,15 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
+import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
+import DateTimePicker from '@material-ui/lab/DateTimePicker';
+import { makeStyles } from '@material-ui/core/styles';
 
 export default function Form() {
+    const [startDate, setStartDate] = React.useState(new Date());
+    const [endDate, setEndDate] = React.useState(new Date());
+
     const [value, setValue] = React.useState();
     const [category, setCategory] = React.useState('');
 
@@ -26,8 +33,31 @@ export default function Form() {
       setValue(event.target.value);
     };
 
+    const useStyles = makeStyles((theme) => ({
+      container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+      },
+      textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: 176,
+      },
+    }));
+
+    const classes = useStyles();
+    // 2017-05-24T10:30
+    const datestring = ( startDate.getDate()).toString().padStart(2, "0") + "-" + 
+                       ((startDate.getMonth()+1)).toString().padStart(2, "0") + "-" +
+                         startDate.getFullYear() + " " +
+                        (startDate.getHours()).toString().padStart(2, "0") + ":" +
+                        (startDate.getMinutes()).toString().padStart(2, "0");
+    
+                        console.log(datestring)
+
     return (
-      <div className="main-ext">
+      <div className="main-ext stretched">
+        <div className="required">* Required fields</div>
         <TextField 
           label="Title" 
           variant="outlined" 
@@ -62,17 +92,31 @@ export default function Form() {
         />
         
         <div className="date-entry"> 
-        <TextField 
-          label="Start date" 
-          variant="outlined" 
-          fullWidth={false}
-          required={true}
-        />
-          <TextField 
-          label="End date" 
-          variant="outlined" 
-          fullWidth={false}
-        />
+          <form className={classes.container} noValidate>
+            <TextField
+              id="datetime-local"
+              label="Start Date/Time"
+              type="datetime-local"
+              defaultValue="2017-05-24T10:30"
+              className={classes.textField}
+              required={true}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+          </form>
+          <form className={classes.container} noValidate>
+            <TextField
+              id="datetime-local"
+              label="End Date/Time"
+              type="datetime-local"
+              defaultValue={endDate}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+          </form>
         </div>
         {/* <div className="date-entry">
           <DateEntry
@@ -82,7 +126,6 @@ export default function Form() {
             labelWord="End date/time:"
           />
         </div> */}
-        <div className="required">* Required fields</div>
         <TextArea></TextArea>
 
         <div className="attached">

@@ -22,8 +22,6 @@ import ReplyCard from './ReplyCard';
 
 import avatar from '../assets/avatar.png';
 
-
-
 const theme = createMuiTheme({
     palette: {
       primary: {
@@ -60,6 +58,7 @@ const theme = createMuiTheme({
     },
     title: {
       color: 'white',
+      fontSize: 18,
     },
     dividerColor: {
       backgroundColor: 'white',
@@ -74,19 +73,13 @@ const theme = createMuiTheme({
       backgroundColor: 'rgba(0, 0, 0, 0.29)'
     }
     
-  
-    
   }));
   
 
 export default function CommentCard() {
 
-  
-  
-
     const classes = useStyles();
-    
-  
+      
     return (
         <div className="main-ext">
     <Card className={classes.root}>

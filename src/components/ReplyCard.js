@@ -8,9 +8,6 @@ import avatar2 from '../assets/avatar2.png'
 import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
 import SubdirectoryArrowRightOutlinedIcon from '@material-ui/icons/SubdirectoryArrowRightOutlined';
 
-
-
-
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 360,
