@@ -27,7 +27,7 @@ export default function Form() {
     };
 
     return (
-      <div className="main-ext stretched">
+      <div className="main-ext">
         <TextField 
           label="Title" 
           variant="outlined" 
@@ -36,23 +36,23 @@ export default function Form() {
         />
           
         <FormControl variant="outlined" className="text-field-margin" fullWidth={true} required={true}>
-                <InputLabel>Category</InputLabel>
-                <Select
-                    labelId="cat-select-outlined-label"
-                    id="cat-select-outlined"
-                    value={category}
-                    onChange={handleCategoryChange}
-                    label="Category"
-                >
-                    
-                    <MenuItem value={"Cafe"}>Cafe</MenuItem>
-                    <MenuItem value={"Sports"}>Sports</MenuItem>
-                    <MenuItem value={"Outdoor"}>Outdoor</MenuItem>
-                    <MenuItem value={"Meet Up"}>Meet Up</MenuItem>
-                    <MenuItem value={"Science"}>Science</MenuItem>
-                    <MenuItem value={"Other"}>Other</MenuItem>
-                </Select>
-            </FormControl>
+          <InputLabel>Category</InputLabel>
+          <Select
+              labelId="cat-select-outlined-label"
+              id="cat-select-outlined"
+              value={category}
+              onChange={handleCategoryChange}
+              label="Category"
+          >
+              
+            <MenuItem value={"Cafe"}>Cafe</MenuItem>
+            <MenuItem value={"Sports"}>Sports</MenuItem>
+            <MenuItem value={"Outdoor"}>Outdoor</MenuItem>
+            <MenuItem value={"Meet Up"}>Meet Up</MenuItem>
+            <MenuItem value={"Science"}>Science</MenuItem>
+            <MenuItem value={"Other"}>Other</MenuItem>
+          </Select>
+          </FormControl>
 
 
         <TextField 
@@ -65,22 +65,23 @@ export default function Form() {
         <TextField 
           label="Start date" 
           variant="outlined" 
-          fullWidth={true}
+          fullWidth={false}
+          required={true}
         />
           <TextField 
           label="End date" 
           variant="outlined" 
-          fullWidth={true}
+          fullWidth={false}
         />
         </div>
-        <div className="date-entry">
+        {/* <div className="date-entry">
           <DateEntry
             labelWord="* Start date/time:"
           />
           <DateEntry
             labelWord="End date/time:"
           />
-        </div>
+        </div> */}
         <div className="required">* Required fields</div>
         <TextArea></TextArea>
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Plus from "../assets/plus.png";
 import TextField from '@material-ui/core/TextField';
+import Tags from './Tags';
 
 export default function TextArea() {
   return (
@@ -14,9 +15,7 @@ export default function TextArea() {
         required={true}
       />
       <div className="tags">
-        <button className="tags-btn"><img className="plus-img" src={Plus} alt="+" height="24px"/></button>
-        <label className="tags-label">Tags:</label>
-        <input className="tags-field" type="text" disabled></input>
+        <label className="tags-label"><Tags/></label>
       </div>
     </div>
   )
