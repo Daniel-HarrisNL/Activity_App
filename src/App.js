@@ -2,9 +2,9 @@ import './App.css';
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
-import Feed from "./components/Feed";
-import Post from "./components/Post";
-import SinglePost from "./components/SinglePost";
+import Feed from "./components/Feed/Feed";
+import Post from "./components/Create/Post";
+import SinglePost from "./components/Posting/SinglePost";
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ function App() {
         </div>
         <div className="main">
           <Switch>
-            <Route path="/"   exact   component={Feed}/>
+            <Route path="/"     exact component={Feed}/>
             <Route path="/feed" exact component={Feed} />
             <Route path="/feed/:cat"  component={Feed} />
             <Route path="/post"       component={Post}/>

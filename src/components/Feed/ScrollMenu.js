@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemText } from '@material-ui/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Gym     from "../assets/barbell.png";
-import Games   from "../assets/controller.png";
-import Cafe    from "../assets/coffee.png";
-import Sports  from "../assets/basketball.png";
-import Outdoor from "../assets/sun.png";
-import MeetUp  from "../assets/users.png";
-import Science from "../assets/rocket.png";
-import Chat    from "../assets/chat.png";
+import Gym     from "../../assets/barbell.png";
+import Games   from "../../assets/controller.png";
+import Cafe    from "../../assets/coffee.png";
+import Sports  from "../../assets/basketball.png";
+import Outdoor from "../../assets/sun.png";
+import MeetUp  from "../../assets/users.png";
+import Science from "../../assets/rocket.png";
+import Chat    from "../../assets/chat.png";
 
 function ScrollMenu() {
   const [drawerOpen, setDrawerOpen] = useState(false);

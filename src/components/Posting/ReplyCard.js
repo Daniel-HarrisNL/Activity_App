@@ -2,9 +2,9 @@ import React from 'react';
 import { Avatar, Grid, Paper} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
-import avatar from '../assets/avatar.png';
-import avatar1 from '../assets/avatar1.png';
-import avatar2 from '../assets/avatar2.png'
+import avatar from '../../assets/avatar.png';
+import avatar1 from '../../assets/avatar1.png';
+import avatar2 from '../../assets/avatar2.png'
 import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
 import SubdirectoryArrowRightOutlinedIcon from '@material-ui/icons/SubdirectoryArrowRightOutlined';
 

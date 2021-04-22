@@ -1,5 +1,5 @@
 import React from 'react';
-import Plus from "../assets/plus.png";
+import Plus from "../../assets/plus.png";
 import TextField from '@material-ui/core/TextField';
 import Tags from './Tags';
 

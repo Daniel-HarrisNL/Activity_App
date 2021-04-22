@@ -20,26 +20,25 @@ import MessageOutlinedIcon from '@material-ui/icons/MessageOutlined';
 import ReplyCard from './ReplyCard';
 
 
-import avatar from '../assets/avatar.png';
+import avatar from '../../assets/avatar.png';
 
 const theme = createMuiTheme({
     palette: {
       primary: {
-        // light: '#757ce8',
-        main: '#f9f9fe',
+        // light: '#757CE8',
+        main: '#FFFFFF',
         // dark: '#002884',
-        contrastText: '#fff',
+        contrastText: '#FFFFFF',
       },
       secondary: {
-        light: '#ff7961',
-        main: '#f44336',
-        dark: '#ba000d',
-        contrastText: '#000',
+        light: '#FF7961',
+        main: '#F44336',
+        dark: '#BA000D',
+        contrastText: '#000000',
       },
       
     },
   });
-  
   
   const useStyles = makeStyles((theme) => ({
     root: {

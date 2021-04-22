@@ -1,8 +1,8 @@
 import React from 'react';
-import "../App.css";
+import "../../App.css";
 import { v4 as uuidv4 } from 'uuid'; // then use uuidv4() to insert id
 
-import Comments from "../assets/chat.png";
+import Comments from "../../assets/chat.png";
 
 function Activity(props) {
   let img_desc = props.img_desc;
