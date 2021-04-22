@@ -3,7 +3,7 @@ import Form from './Form';
 import Buttons from './Buttons';
 import { Link } from "react-router-dom";
 
-export default function Post() {
+function Post() {
     return (
         <>
             <Form />
@@ -13,3 +13,5 @@ export default function Post() {
         </>
     )
 }
+
+export default Post

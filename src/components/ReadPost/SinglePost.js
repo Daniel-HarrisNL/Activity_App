@@ -75,7 +75,7 @@ const theme = createMuiTheme({
   }));
   
 
-export default function CommentCard() {
+function CommentCard() {
 
     const classes = useStyles();
       
@@ -115,5 +115,4 @@ export default function CommentCard() {
     )
 };
 
-
-
+export default CommentCard

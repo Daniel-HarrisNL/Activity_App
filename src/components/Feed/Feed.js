@@ -1,42 +1,51 @@
-import React from 'react'
 import Activity from "./Activity";
 import ScrollMenu from "./ScrollMenu";
 import SearchBar from "./SearchBar";
+
+import { FontAwesomeIcon as FAIcon} from '@fortawesome/react-fontawesome';
+import { faVideo, faStickyNote } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 
 function Feed({match}) {
   const feedArray = [
     {
+      key: 0,
       title: "Looking for biking friends for a trip this weekend",
       img_desc: "biking",
       category: "outdoor"
     },
     {
+      key: 1,
       title: "Weekly Fortnite Party",
       img_desc: "fortnite",
       category: "games"
     },
     {
+      key: 2,
       title: "First time rock climbing group going this weekend, available to all.",
       img_desc: "rock,climbing",
       category: "outdoor"
     },
     {
+      key: 3,
       title: "Yoga class - 3 times a week",
       img_desc: "yoga",
       category: "gym"
     },
     {
+      key: 4,
       title: "Anyone want a fishing buddy?",
       img_desc: "fishing",
       category: "outdoor"
     },
     {
+      key: 5,
       title: "Poetry Open Night",
       img_desc: "poetry",
       category: "cafe"
     },
     {
+      key: 6,
       title: "Swim group, we meet every 2nd Thursday.",
       img_desc: "swimming",
       category: "sports"
@@ -78,10 +87,13 @@ function Feed({match}) {
         }
         </Link>
       </div>
-      <div className="post">
+      <div className="post-buttons">
         <Link to="/post">
-          <button className="blue-btn large">New Post</button>
+          <button className="blue-btn large"><FAIcon icon={faStickyNote} color="red" /> New Post</button>
         </Link>
+        <Link to="/post">
+          <button className="blue-btn large"><FAIcon icon={faVideo} color="red" /> New Video</button>
+        </Link>          
       </div>
     </>
   )

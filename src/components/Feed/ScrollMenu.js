@@ -3,8 +3,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid'; // then use uuidv4() to insert id
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Drawer, List, ListItem, ListItemText } from '@material-ui/core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Drawer, List, ListItem } from '@material-ui/core'
 
 import Gym     from "../../assets/barbell.png";
 import Games   from "../../assets/controller.png";
