@@ -93,6 +93,7 @@ button {cursor: pointer;}
   display: flex;
   align-items: center;
   padding-inline: 8px;
+  justify-content: center;
   height: 48px;
   color: white;
 }
@@ -112,6 +113,12 @@ button {cursor: pointer;}
 .stretched {
   margin-top: 8px;
   height: 672px;
+}
+
+.footer-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* -------- Feed Styling ------------------------------------------------------------ */
