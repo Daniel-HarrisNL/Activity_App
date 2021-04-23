@@ -13,6 +13,7 @@ import Fade from '@material-ui/core/Fade';
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
+    flexDirection: "column",
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -21,11 +22,16 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    borderRadius: '8px'
+    borderRadius: '8px',
+    width: "350px",
+    display: 'flex',
+    flexDirection: "column",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 }));
 
-export default function ReplyModal() {
+function ReplyModal() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -36,8 +42,6 @@ export default function ReplyModal() {
   const handleClose = () => {
     setOpen(false);
   };
-
-  
 
   return (
     <div>
@@ -70,7 +74,7 @@ export default function ReplyModal() {
                 fullWidth={true}
                 required={true}
             />
-            <button onClick={handleClose} className="blue-btn" type="button" title="Submit">Submit</button>
+            <button onClick={handleClose} className="btn blue-btn large" type="button" title="Submit">Submit</button>
         </div>
         </Fade>
       </Modal>
@@ -78,7 +82,7 @@ export default function ReplyModal() {
   );
 }
 
-
+export default ReplyModal
 
 
   
