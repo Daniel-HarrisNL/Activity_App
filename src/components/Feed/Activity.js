@@ -12,7 +12,7 @@ function Activity(props) {
       <div className="act-info">
         <div className="act-title">{props.title}</div>
         <div className="act-avatars">
-          <div>{props.category}</div>
+          <div>{props.category} -&nbsp;</div>
           <img className="act-comment" src={Comments} alt="Comments" />
         </div>
       </div>

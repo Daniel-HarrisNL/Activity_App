@@ -18,7 +18,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import avatar from '../../assets/avatar.png';
 
-const theme = createMuiTheme({
+function CommentCard() {
+
+  const theme = createMuiTheme({
     palette: {
       primary: {
         // light: '#757CE8',
@@ -70,9 +72,6 @@ const theme = createMuiTheme({
     
   }));
   
-
-function CommentCard() {
-
     const classes = useStyles();
       
     return (

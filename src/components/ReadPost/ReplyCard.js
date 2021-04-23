@@ -7,7 +7,8 @@ import avatar1 from '../../assets/avatar1.png';
 import avatar2 from '../../assets/avatar2.png'
 import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
 
-const useStyles = makeStyles((theme) => ({
+function ReplyCard() {
+  const useStyles = makeStyles((theme) => ({
     root: {
       
       maxWidth: 390,
@@ -18,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     
   }));
 
-function ReplyCard() {
     const classes = useStyles();
     return (
       <div>
