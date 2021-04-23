@@ -1,6 +1,6 @@
 import React from 'react'
-
-import { makeStyles } from '@material-ui/core/styles';
+import InterestedModal from './InterestedModal';
+import ReplyModal from './ReplyModal';
 import { Divider } from '@material-ui/core';
 
 import Card from '@material-ui/core/Card';
@@ -8,16 +8,12 @@ import CardHeader from '@material-ui/core/CardHeader';
 
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-
+import ReplyCard from './ReplyCard';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
-import MessageOutlinedIcon from '@material-ui/icons/MessageOutlined';
-import ReplyCard from './ReplyCard';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 import avatar from '../../assets/avatar.png';
@@ -87,7 +83,9 @@ function CommentCard() {
           <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
         }
         className={classes.title}
-        title="Looking for biking friends"
+        title={ <Typography gutterBottom variant="h5" component="h2">
+          Looking for biking friends
+        </Typography>}
         subheader="TimeStamp Placeholder"
       />
       <Divider className={classes.dividerColor} />
@@ -99,16 +97,9 @@ function CommentCard() {
         </ThemeProvider>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="I'm interested">
-          <EmojiEmotionsIcon style={{color: 'yellow'}} /> <h6 style={{color: 'lightGrey'}} >-I'm Interested!</h6>
-        </IconButton>
-        <IconButton aria-label="comment">
-          <MessageOutlinedIcon fontSize="large" style={{color: 'white'}} />
-          <h6 style={{color: 'black'}} >-Comment</h6>
-        </IconButton>
-      
+        <InterestedModal />
+        <ReplyModal />
       </CardActions>
-      
     </Card>
     <ReplyCard/>
     </div>

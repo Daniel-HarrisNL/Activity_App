@@ -6,27 +6,16 @@ import avatar from '../../assets/avatar.png';
 import avatar1 from '../../assets/avatar1.png';
 import avatar2 from '../../assets/avatar2.png'
 import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
-import SubdirectoryArrowRightOutlinedIcon from '@material-ui/icons/SubdirectoryArrowRightOutlined';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 360,
-      border: '1px solid rgba(0, 0, 0, 0.28)',
+      
+      maxWidth: 390,
       boxSizing: 'border-box',
-      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-      borderRadius: '10px',
       background: '#e8e8e8',
-      margin: 'auto'
+      margin: 'auto auto 5px auto'
     },
-    reply: {
-        maxWidth: 270,
-        border: '1px solid rgba(0, 0, 0, 0.28)',
-        boxSizing: 'border-box',
-        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-        borderRadius: '10px',
-        background: '#e8e8e8',
-        margin: 'auto'
-    }
+    
   }));
 
 function ReplyCard() {
@@ -40,7 +29,9 @@ function ReplyCard() {
             </Grid>
             <Grid justifyContent="left" item xs zeroMinWidth>
               <h4 style={{ margin: 0, textAlign: "left" }}>Jane Doe</h4>
-              <p style={{ textAlign: "left" }}> Where should we meet?
+              <p style={{ textAlign: "left" }}> 
+              Where should we meet?
+              
                 {" "}
               </p>
               <p style={{ textAlign: "left", color: "gray" }}>
@@ -52,11 +43,9 @@ function ReplyCard() {
           
         </Paper>
   
-       <CardActions>
-           <SubdirectoryArrowRightOutlinedIcon
-           style={{ fontSize: 75 }}/>
+       
            <Paper >
-          <Grid className={classes.reply} container wrap="nowrap" spacing={2}>
+          <Grid className={classes.root} container wrap="nowrap" spacing={2}>
             <Grid item>
               <Avatar alt="Remy Sharp" src={avatar} />
             </Grid>
@@ -73,7 +62,7 @@ function ReplyCard() {
           </Grid>
           
         </Paper>
-       </CardActions>
+     
 
        <Paper >
           <Grid className={classes.root} container wrap="nowrap" spacing={2}>
