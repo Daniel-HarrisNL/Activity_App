@@ -14,7 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 function Form() {
   
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('')
   
   const handleCategoryChange = (event) => {
   setCategory(event.target.value);
@@ -32,81 +32,78 @@ function Form() {
     },
   }));
   
-  const classes = useStyles();
+  const classes = useStyles()
     
-    return (
-      <div className="main-ext stretched">
-        <div className="required">* Required fields</div>
-        <TextField 
-          label="Title" 
-          variant="outlined" 
-          fullWidth={true}
-          required={true}
-        />
-          
-        <FormControl variant="outlined" className="text-field-margin" fullWidth={true} required={true}>
-          <InputLabel>Category</InputLabel>
-          <Select
-              labelId="cat-select-outlined-label"
-              id="cat-select-outlined"
-              value={category}
-              onChange={handleCategoryChange}
-              label="Category"
-          >
-              
-            <MenuItem value={"Cafe"}>Cafe</MenuItem>
-            <MenuItem value={"Sports"}>Sports</MenuItem>
-            <MenuItem value={"Outdoor"}>Outdoor</MenuItem>
-            <MenuItem value={"Meet Up"}>Meet Up</MenuItem>
-            <MenuItem value={"Science"}>Science</MenuItem>
-            <MenuItem value={"Other"}>Other</MenuItem>
-          </Select>
-          </FormControl>
-
-
-        <TextField 
-          label="Location" 
-          variant="outlined" 
-          fullWidth={true}
-        />
+  return (
+    <div className="main-ext stretched">
+      <div className="required">* Required fields</div>
+      <TextField 
+        label="Title" 
+        variant="outlined" 
+        fullWidth={true}
+        required={true}
+      />
         
-        <div className="date-entry"> 
-          <form className={classes.container} noValidate>
-            <TextField
-              id="datetime-local-start"
-              label="Start Date/Time"
-              type="datetime-local"
-              className={classes.textField}
-              required={true}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-          </form>
-          <form className={classes.container} noValidate>
-            <TextField
-              id="datetime-local-end"
-              label="End Date/Time"
-              type="datetime-local"
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-          </form>
-        </div>
-        <TextArea />
+      <FormControl variant="outlined" className="text-field-margin" fullWidth={true} required={true}>
+        <InputLabel>Category</InputLabel>
+        <Select
+            labelId="cat-select-outlined-label"
+            id="cat-select-outlined"
+            value={category}
+            onChange={handleCategoryChange}
+            label="Category"
+        >
+            
+          <MenuItem value={"Cafe"}>Cafe</MenuItem>
+          <MenuItem value={"Sports"}>Sports</MenuItem>
+          <MenuItem value={"Outdoor"}>Outdoor</MenuItem>
+          <MenuItem value={"Meet Up"}>Meet Up</MenuItem>
+          <MenuItem value={"Science"}>Science</MenuItem>
+          <MenuItem value={"Other"}>Other</MenuItem>
+        </Select>
+      </FormControl>
 
-        <div className="attached">
-          <div className="media-buttons">Attached Pic<br />
-          <FAIcon icon={faImages} color="blue" size="2x" /></div>
-          <div className="media-buttons">Record Video<br />
-          <FAIcon icon={faVideo} color="red" size="2x" /></div>
-        </div>
-
+      <TextField 
+        label="Location" 
+        variant="outlined" 
+        fullWidth={true}
+      />
+      
+      <div className="date-entry"> 
+        <form className={classes.container} noValidate>
+          <TextField
+            id="datetime-local-start"
+            label="Start Date/Time"
+            type="datetime-local"
+            className={classes.textField}
+            required={true}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </form>
+        <form className={classes.container} noValidate>
+          <TextField
+            id="datetime-local-end"
+            label="End Date/Time"
+            type="datetime-local"
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </form>
       </div>
+      <TextArea></TextArea>
 
-    )
+      <div className="attached">
+        <div className="media-buttons">Attached Pic<br />
+        <FAIcon icon={faImages} color="blue" size="2x" /></div>
+        <div className="media-buttons">Record Video<br />
+        <FAIcon icon={faVideo} color="red" size="2x" /></div>
+      </div>
+    </div>
+  )
 }
 
 export default Form
