@@ -12,43 +12,43 @@ function Feed({match}) {
       id: 0,
       title: "Looking for biking friends for a trip this weekend",
       img_desc: "biking",
-      category: "outdoor"
+      category: "Outdoor"
     },
     {
       id: 1,
       title: "Weekly Fortnite Party",
       img_desc: "fortnite",
-      category: "games"
+      category: "Games"
     },
     {
       id: 2,
       title: "First time rock climbing group going this weekend, available to all.",
       img_desc: "rock,climbing",
-      category: "outdoor"
+      category: "Outdoor"
     },
     {
       id: 3,
       title: "Yoga class - 3 times a week",
       img_desc: "yoga",
-      category: "gym"
+      category: "Gym"
     },
     {
       id: 4,
       title: "Anyone want a fishing buddy?",
       img_desc: "fishing",
-      category: "outdoor"
+      category: "Outdoor"
     },
     {
       id: 5,
       title: "Poetry Open Night",
       img_desc: "poetry",
-      category: "cafe"
+      category: "Cafe"
     },
     {
       id: 6,
       title: "Swim group, we meet every 2nd Thursday.",
       img_desc: "swimming",
-      category: "sports"
+      category: "Sports"
     }
   ];
 
@@ -56,7 +56,7 @@ function Feed({match}) {
   if (match.params.cat === undefined) {
     search = "all";
   } else {
-    search = match.params.cat.toLowerCase();  
+    search = match.params.cat;  
   }
 
   return (
@@ -74,6 +74,7 @@ function Feed({match}) {
               id={e.id} 
               img_desc={e.img_desc}
               title={e.title}
+              category={e.category}
             />
             );
           }) :
@@ -83,6 +84,7 @@ function Feed({match}) {
               id={e.id} 
               img_desc={e.img_desc}
               title={e.title}
+              category={e.category}
             />
             );
           })  
