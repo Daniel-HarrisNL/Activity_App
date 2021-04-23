@@ -37,7 +37,6 @@ function ReplyCard() {
               <p style={{ textAlign: "left", color: "gray" }}>
                 posted 1 minute ago
               </p>
-              <CardActions><QuestionAnswerOutlinedIcon/>Reply</CardActions>
             </Grid>
           </Grid>
           
@@ -57,7 +56,6 @@ function ReplyCard() {
               <p style={{ textAlign: "left", color: "gray" }}>
                 posted 1 minute ago
               </p>
-              <CardActions><QuestionAnswerOutlinedIcon/>Reply</CardActions>
             </Grid>
           </Grid>
           
@@ -77,7 +75,6 @@ function ReplyCard() {
               <p style={{ textAlign: "left", color: "gray" }}>
                 posted 1 minute ago
               </p>
-              <CardActions><QuestionAnswerOutlinedIcon/>Reply</CardActions>
             </Grid>
           </Grid>
           
