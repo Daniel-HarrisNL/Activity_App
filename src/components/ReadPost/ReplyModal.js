@@ -10,28 +10,28 @@ import Fade from '@material-ui/core/Fade';
 
 
 
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: 'flex',
-    flexDirection: "column",
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-    borderRadius: '8px',
-    width: "350px",
-    display: 'flex',
-    flexDirection: "column",
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-}));
-
 function ReplyModal() {
+  const useStyles = makeStyles((theme) => ({
+    modal: {
+      display: 'flex',
+      flexDirection: "column",
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    paper: {
+      backgroundColor: theme.palette.background.paper,
+      border: '2px solid #000',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+      borderRadius: '8px',
+      width: "350px",
+      display: 'flex',
+      flexDirection: "column",
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  }));
+  
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
