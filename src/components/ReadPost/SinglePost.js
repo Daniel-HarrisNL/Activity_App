@@ -96,7 +96,7 @@ function CommentCard() {
         </Typography>
         </ThemeProvider>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing className="post-buttons">
         <InterestedModal />
         <ReplyModal />
       </CardActions>
