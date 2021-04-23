@@ -1,8 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import Menu from "../assets/menu.png";
 import Avatar from "../assets/avatar.png";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from "react-router-dom";

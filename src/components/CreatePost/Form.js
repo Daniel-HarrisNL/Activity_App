@@ -1,6 +1,4 @@
-import React from 'react';
-import FormEntry from './FormEntry';
-import DateEntry from './DateEntry';
+import { useState } from 'react';
 import TextArea from './TextArea';
 
 import { FontAwesomeIcon as FAIcon} from '@fortawesome/react-fontawesome';
@@ -10,51 +8,32 @@ import { faImages } from '@fortawesome/free-solid-svg-icons';
 import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
-import LocalizationProvider from '@material-ui/lab/LocalizationProvider';
-import DateTimePicker from '@material-ui/lab/DateTimePicker';
 import { makeStyles } from '@material-ui/core/styles';
 
-export default function Form() {
-    const [startDate, setStartDate] = React.useState(new Date());
-    const [endDate, setEndDate] = React.useState(new Date());
-
-    const [value, setValue] = React.useState();
-    const [category, setCategory] = React.useState('');
-
-    const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
-    };
-
-    const handleChange = (event) => {
-      setValue(event.target.value);
-    };
-
-    const useStyles = makeStyles((theme) => ({
-      container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-      },
-      textField: {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        width: 176,
-      },
-    }));
-
-    const classes = useStyles();
-    // 2017-05-24T10:30
-    const datestring = ( startDate.getDate()).toString().padStart(2, "0") + "-" + 
-                       ((startDate.getMonth()+1)).toString().padStart(2, "0") + "-" +
-                         startDate.getFullYear() + " " +
-                        (startDate.getHours()).toString().padStart(2, "0") + ":" +
-                        (startDate.getMinutes()).toString().padStart(2, "0");
+function Form() {
+  
+  const [category, setCategory] = useState('');
+  
+  const handleCategoryChange = (event) => {
+  setCategory(event.target.value);
+  };
+  
+  const useStyles = makeStyles((theme) => ({
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: 176,
+    },
+  }));
+  
+  const classes = useStyles();
     
-                        console.log(datestring)
-
     return (
       <div className="main-ext stretched">
         <div className="required">* Required fields</div>
@@ -94,10 +73,9 @@ export default function Form() {
         <div className="date-entry"> 
           <form className={classes.container} noValidate>
             <TextField
-              id="datetime-local"
+              id="datetime-local-start"
               label="Start Date/Time"
               type="datetime-local"
-              defaultValue="2017-05-24T10:30"
               className={classes.textField}
               required={true}
               InputLabelProps={{
@@ -107,10 +85,9 @@ export default function Form() {
           </form>
           <form className={classes.container} noValidate>
             <TextField
-              id="datetime-local"
+              id="datetime-local-end"
               label="End Date/Time"
               type="datetime-local"
-              defaultValue={endDate}
               className={classes.textField}
               InputLabelProps={{
                 shrink: true,
@@ -118,15 +95,7 @@ export default function Form() {
             />
           </form>
         </div>
-        {/* <div className="date-entry">
-          <DateEntry
-            labelWord="* Start date/time:"
-          />
-          <DateEntry
-            labelWord="End date/time:"
-          />
-        </div> */}
-        <TextArea></TextArea>
+        <TextArea />
 
         <div className="attached">
           <div className="media-buttons">Attached Pic<br />
@@ -139,3 +108,5 @@ export default function Form() {
 
     )
 }
+
+export default Form

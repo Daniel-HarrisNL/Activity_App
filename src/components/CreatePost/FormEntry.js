@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function FormEntry(props) {
+function FormEntry(props) {
     return (
         <div className="form-entry">
             <label for="form-input" className="form-label">{props.labelWord}</label>
@@ -8,3 +8,5 @@ export default function FormEntry(props) {
         </div>
     )
 }
+
+export default FormEntry
