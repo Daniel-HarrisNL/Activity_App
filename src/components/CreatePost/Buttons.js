@@ -6,8 +6,8 @@ export default function Buttons() {
 	
     return (
         <div className="post post-buttons">     
-            <button className="black-btn large" onClick={()=>history.push("/feed")}>Cancel</button>
-            <button className="blue-btn large" onClick={()=>history.push("/singlepost")}>Submit</button>
+            <button className="btn black-btn large" onClick={()=>history.push("/feed")}>Cancel</button>
+            <button className="btn blue-btn large" onClick={()=>history.push("/singlepost")}>Submit</button>
         </div>
     )
 }
