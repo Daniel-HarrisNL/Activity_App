@@ -46,7 +46,7 @@ function CommentCard() {
       boxSizing: 'border-box',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       borderRadius: '10px',
-      margin: '25px auto'
+      margin: '0 auto 8px auto'
     
     },
     media: {
