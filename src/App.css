@@ -1,16 +1,24 @@
-* {font-size: 16px; box-sizing: border-box;}
-body {background-color: #1a3a4c; margin: 0;}
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1a3a4c;
+  margin: 0;
+}
 
-button {cursor: pointer;}
+button {
+  cursor: pointer;
+}
 
 .App {
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
-  grid-template-areas: 
-      "header"
-      "main"
-      "footer";
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
   background-color: #ffffff;
   text-align: center;
   max-width: 414px;
@@ -26,21 +34,21 @@ button {cursor: pointer;}
 .main {
   grid-area: main;
   overflow-x: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
-  grid-template-areas: 
-      "search"
-      "feed"
-      "post";
+  grid-template-areas:
+    "search"
+    "feed"
+    "post";
 }
 
 .search {
   grid-area: search;
   padding: 8px 0 8px 0;
-  border-bottom: 1px solid #DDDDDDAA;
+  border-bottom: 1px solid #ddddddaa;
 }
 
 .feed-container {
@@ -55,8 +63,8 @@ button {cursor: pointer;}
 .act-feed {
   grid-area: feed;
   overflow: auto;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 .act-feed::-webkit-scrollbar {
   display: none;
@@ -65,7 +73,7 @@ button {cursor: pointer;}
 .post {
   grid-area: post;
   padding: 8px 0;
-  border-top: 0.5px solid #DDDDDDAA;  
+  border-top: 0.5px solid #ddddddaa;
 }
 
 .footer {
@@ -74,7 +82,7 @@ button {cursor: pointer;}
   width: 100%;
   padding-top: 8px;
   background-color: #ffffff;
-  border-top: 0.5px solid #DDDDDDAA;  
+  border-top: 0.5px solid #ddddddaa;
 }
 
 .nav-bar {
@@ -85,7 +93,7 @@ button {cursor: pointer;}
   align-items: center;
   padding: 0 16px;
   background: #4892bc;
-  border-bottom: 0.5px solid #DDDDDDAA;  
+  border-bottom: 0.5px solid #ddddddaa;
 }
 
 .avatar {
@@ -173,12 +181,20 @@ button {cursor: pointer;}
 }
 /* ------------------------------------------------------------------------------- */
 
-.small {height: 32px;  width: 80px;  font-size: 14pt;}
-.large {height: 48px;  width: 176px; font-size: 18pt;}
+.small {
+  height: 32px;
+  width: 80px;
+  font-size: 14pt;
+}
+.large {
+  height: 48px;
+  width: 176px;
+  font-size: 18pt;
+}
 
 /* -------- Search Bar Styling ---------------------------------------------------- */
 .category-btn {
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 4px;
   width: 352px;
   height: 32px;
@@ -313,8 +329,9 @@ h2 {
   padding: 0px 0px 4px 0px;
 }
 
-
-.date-input { display: inline-block;}
+.date-input {
+  display: inline-block;
+}
 
 .date-input[type="datetime-local"] {
   font-style: italic;
@@ -330,7 +347,7 @@ h2 {
 
 .text-area {
   width: 88%;
-  height: 144px;;
+  height: 144px;
   padding: 4px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.125rem;
@@ -396,7 +413,6 @@ h2 {
   font-size: 1rem;
   font-style: italic;
   text-align: left;
- 
 }
 
 .attached {
@@ -441,4 +457,14 @@ h2 {
 
 .blue-btn {
   background-color: #354787;
+}
+
+.single-post {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  /* margin-bottom: 40px; */
+  background-color: #e8e8e8;
 }
