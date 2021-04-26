@@ -66,8 +66,9 @@ function CommentCard() {
       // border: '1px solid rgba(0, 0, 0, 0.28)',
       boxSizing: 'border-box',
       // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.29)',
-    
-      backgroundColor: 'rgba(0, 0, 0, 0.29)'
+      textAlign:'left',
+      // backgroundColor: 'rgba(0, 0, 0, 0.29)'
+      fontSize:'1.1rem'
     }
     
   }));
@@ -90,15 +91,15 @@ function CommentCard() {
       <Divider className={classes.dividerColor} />
       <CardContent>
         <ThemeProvider theme={theme}>
-        <Typography variant="body2" color="primary" component="p" className={classes.textArea}>
+        <Typography color="primary" component="p" className={classes.textArea}>
         “Hey all!  I am looking to organize a biking trip for this weekend.  Hoping to find a few friends who are interested.”
         </Typography>
         </ThemeProvider>
       </CardContent>
-      <CardActions disableSpacing className="post-buttons">
+      {/* <CardActions disableSpacing className="post-buttons">
         <InterestedModal />
         <ReplyModal />
-      </CardActions>
+      </CardActions> */}
     </Card>
     <ReplyCard/>
     </div>
