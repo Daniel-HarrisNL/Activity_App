@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, props } from 'react';
 import TextField from '@material-ui/core/TextField';
+import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import MessageOutlinedIcon from '@material-ui/icons/MessageOutlined';
 import { makeStyles } from '@material-ui/core/styles';
@@ -47,9 +48,9 @@ function ReplyModal() {
     <div>
      
       <IconButton type="button" onClick={handleOpen} aria-label="comment">
-          <MessageOutlinedIcon fontSize="large" style={{color: 'white'}} />
+          <QuestionAnswerOutlinedIcon fontSize="large" style={{color: 'black'}} />
           <h6 style={{color: 'black'}} >-Comment</h6>
-        </IconButton>
+      </IconButton>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

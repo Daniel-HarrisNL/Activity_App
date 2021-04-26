@@ -37,7 +37,7 @@ import { makeStyles } from '@material-ui/core/styles';
     <div>
       
       <IconButton type="button" onClick={handleOpen} aria-label="I'm interested">
-          <EmojiEmotionsIcon style={{color: 'yellow'}} /> <h6 style={{color: 'lightGrey'}} >-I'm Interested!</h6>
+          <EmojiEmotionsIcon style={{color: 'blue'}} /> <h6 style={{color: 'Grey'}} >-I'm Interested!</h6>
         </IconButton>
       <Modal
         aria-labelledby="transition-modal-title"

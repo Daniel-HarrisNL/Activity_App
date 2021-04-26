@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, props} from 'react'
+import Feed from '../Feed/Feed';
 import InterestedModal from './InterestedModal';
 import ReplyModal from './ReplyModal';
 import { Divider } from '@material-ui/core';
-
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 
@@ -69,14 +70,60 @@ function CommentCard() {
       textAlign:'left',
       // backgroundColor: 'rgba(0, 0, 0, 0.29)'
       fontSize:'1.1rem'
+    },
+    viewHeight: {
+      height: '1000vh',
     }
     
   }));
+
+  function MakePost(props){
+    const [message, setMessage] = useState("");
+  
+    const onButtonClick = ()=>{
+      let post = {
+       
+        "message": message
+      }
+      props.addNewPost(post);
+    }
+  
+    return (<form>
+      <input onChange={(e)=>setMessage(e.target.value)} type="text" placeholder="message" />
+      <button onClick={onButtonClick} type="button">Submit!</button>
+    </form>);
+  }
+  
+  
+  function Posts(props){
+    let posts = props.postData;
+    let postsHtml = []
+    for(let i = 0; i < posts.length; i++){
+      let post = posts[i];
+      postsHtml.push(<div>
+        <h3>{post.name}</h3>
+        <p>{post.message}</p>
+      </div>)
+    }
+  
+    return (
+      <main>
+        <h1>Posts:</h1>
+        {postsHtml}
+      </main>
+    )
+  }
+  
   
     const classes = useStyles();
-      
+    
+    
+
+
     return (
-        <div className="main-ext">
+      <div>
+      <div className={classes.viewHeight}>
+        <div className="main-ext ">
     <Card className={classes.root}>
       <CardHeader
         avatar={
@@ -96,12 +143,15 @@ function CommentCard() {
         </Typography>
         </ThemeProvider>
       </CardContent>
-      {/* <CardActions disableSpacing className="post-buttons">
-        <InterestedModal />
-        <ReplyModal />
-      </CardActions> */}
+    
     </Card>
     <ReplyCard/>
+    </div>
+    </div>
+    <div className="post-buttons single-post">
+      <InterestedModal />
+      <ReplyModal/>
+    </div>
     </div>
     )
 };
