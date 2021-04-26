@@ -51,7 +51,7 @@ function ReplyCard() {
             </Grid>
             <Grid justifyContent="left" item xs zeroMinWidth>
               <h4 style={{ margin: 0, textAlign: "left" }}>Remy Sharp</h4>
-              <p style={{ textAlign: "left", margin: "8px 0" }}>The plan is still up in the air, and we will see what everyone else who wants to do this, says.
+              <p style={{ textAlign: "left", margin: "8px 0" }}>The plan is still up in the air, and we will see what everyone else who wants to do this says.
                 {" "}
               </p>
               <p style={{ textAlign: "left", color: "gray", margin: "8px 0" }}>
