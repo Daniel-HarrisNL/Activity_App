@@ -19,7 +19,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import avatar from '../../assets/avatar.png';
 
-const theme = createMuiTheme({
+function CommentCard() {
+
+  const theme = createMuiTheme({
     palette: {
       primary: {
         // light: '#757CE8',
@@ -45,7 +47,8 @@ const theme = createMuiTheme({
       boxSizing: 'border-box',
       boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
       borderRadius: '10px',
-      margin: '25px auto',
+      margin: '0 auto 8px auto'
+    
     },
     media: {
       height: 0,
@@ -64,11 +67,13 @@ const theme = createMuiTheme({
       // border: '1px solid rgba(0, 0, 0, 0.28)',
       boxSizing: 'border-box',
       // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.29)',
-    
-      backgroundColor: 'rgba(0, 0, 0, 0.29)'
+      textAlign:'left',
+      // backgroundColor: 'rgba(0, 0, 0, 0.29)'
+      fontSize:'1.1rem'
     },
-    
-    
+    viewHeight: {
+      height: '1000vh',
+    }
     
   }));
 
@@ -110,48 +115,44 @@ const theme = createMuiTheme({
   }
   
   
-
-function CommentCard() {
-
     const classes = useStyles();
     
     
 
 
     return (
-      <>
-        <div className="main-ext">
-          <Card className={classes.root}>
-      
-          <CardHeader
-            avatar={
-              <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
-            }
-            className={classes.title}
-            title={ <Typography gutterBottom variant="h5" component="h2">
-              Looking for biking friends
-            </Typography>}
-            subheader="TimeStamp Placeholder"
-          />
-          
-          <Divider className={classes.dividerColor} />
-          <CardContent>
-            <ThemeProvider theme={theme}>
-            <Typography variant="body2" color="primary" component="p" className={classes.textArea}>
-            “Hey all!  I am looking to organize a biking trip for this weekend.  Hoping to find a few friends who are interested.”
-            </Typography>
-            </ThemeProvider>
-          </CardContent>
-          
-        </Card>
-        <ReplyCard/>
-      </div>
-      <footer className="post-buttons single-post">
-        <InterestedModal />
-        <ReplyModal />
-     
-      </footer>
-    </>
+      <div>
+      <div className={classes.viewHeight}>
+        <div className="main-ext ">
+    <Card className={classes.root}>
+      <CardHeader
+        avatar={
+          <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
+        }
+        className={classes.title}
+        title={ <Typography gutterBottom variant="h5" component="h2">
+          Looking for biking friends
+        </Typography>}
+        subheader="TimeStamp Placeholder"
+      />
+      <Divider className={classes.dividerColor} />
+      <CardContent>
+        <ThemeProvider theme={theme}>
+        <Typography color="primary" component="p" className={classes.textArea}>
+        “Hey all!  I am looking to organize a biking trip for this weekend.  Hoping to find a few friends who are interested.”
+        </Typography>
+        </ThemeProvider>
+      </CardContent>
+    
+    </Card>
+    <ReplyCard/>
+    </div>
+    </div>
+    <div className="post-buttons single-post">
+      <InterestedModal />
+      <ReplyModal/>
+    </div>
+    </div>
     )
 };
 

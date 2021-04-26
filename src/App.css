@@ -137,21 +137,23 @@ button {
   position: relative;
   display: flex;
   width: calc(100% - 48px);
+  height: 128px;
   background-color: #dde6eb;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   padding: 8px;
-  margin: 16px 16px 16px 24px;
+  margin: 16px;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 }
 
 .act-info {
   display: grid;
   grid-template-rows: 2fr 1fr;
-  max-height: 100%;
+  height: 100%;
   width: 100%;
   align-content: stretch;
+  justify-content: stretch;
   padding: 0 8px;
 }
 
@@ -160,11 +162,11 @@ button {
 }
 
 .act-avatars {
+  height: 24px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 0 8px;
-  bottom: 0;
+  padding: 0;
 }
 
 .act-pic {
@@ -177,7 +179,7 @@ button {
 }
 
 .act-avatar {
-  height: 32px;
+  height: 24px;
 }
 /* ------------------------------------------------------------------------------- */
 
@@ -189,7 +191,14 @@ button {
 .large {
   height: 48px;
   width: 176px;
-  font-size: 18pt;
+  font-size: 16pt;
+}
+@media screen and (min-width: 0) and (max-width: 375px) {
+  .large {
+    height: 42px;
+    width: 154;
+    font-size: 14pt;
+  }
 }
 
 /* -------- Search Bar Styling ---------------------------------------------------- */
@@ -461,10 +470,11 @@ h2 {
 
 .single-post {
   width: 100%;
+
   position: relative;
   bottom: 0;
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  /* margin-bottom: 40px; */
+
   background-color: #e8e8e8;
 }

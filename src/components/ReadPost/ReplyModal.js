@@ -11,22 +11,28 @@ import Fade from '@material-ui/core/Fade';
 
 
 
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-    borderRadius: '8px'
-  },
-}));
-
-export default function ReplyModal(props) {
+function ReplyModal() {
+  const useStyles = makeStyles((theme) => ({
+    modal: {
+      display: 'flex',
+      flexDirection: "column",
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    paper: {
+      backgroundColor: theme.palette.background.paper,
+      border: '2px solid #000',
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(2, 4, 3),
+      borderRadius: '8px',
+      width: "350px",
+      display: 'flex',
+      flexDirection: "column",
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  }));
+  
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -38,18 +44,13 @@ export default function ReplyModal(props) {
     setOpen(false);
   };
 
-  
-
-
-  
-
   return (
     <div>
      
       <IconButton type="button" onClick={handleOpen} aria-label="comment">
           <QuestionAnswerOutlinedIcon fontSize="large" style={{color: 'black'}} />
           <h6 style={{color: 'black'}} >-Comment</h6>
-        </IconButton>
+      </IconButton>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -74,7 +75,7 @@ export default function ReplyModal(props) {
                 fullWidth={true}
                 required={true}
             />
-            <button onClick={handleClose} className="blue-btn" type="button" title="Submit">Submit</button>
+            <button onClick={handleClose} className="btn blue-btn large" type="button" title="Submit">Submit</button>
         </div>
         </Fade>
       </Modal>
@@ -82,7 +83,7 @@ export default function ReplyModal(props) {
   );
 }
 
-
+export default ReplyModal
 
 
   

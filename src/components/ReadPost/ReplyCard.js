@@ -7,37 +7,37 @@ import avatar1 from '../../assets/avatar1.png';
 import avatar2 from '../../assets/avatar2.png'
 import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
 
-const useStyles = makeStyles((theme) => ({
+function ReplyCard() {
+  const useStyles = makeStyles((theme) => ({
     root: {
       
       maxWidth: 390,
       boxSizing: 'border-box',
       background: '#e8e8e8',
-      margin: 'auto auto 5px auto'
+      margin: 'auto auto 5px auto',
+      borderRadius: "8px"
     },
     
   }));
 
-function ReplyCard() {
     const classes = useStyles();
     return (
       <div>
-        <Paper >
+        <Paper>
           <Grid className={classes.root} container wrap="nowrap" spacing={2}>
             <Grid item>
               <Avatar alt="Remy Sharp" src={avatar1} />
             </Grid>
             <Grid justifyContent="left" item xs zeroMinWidth>
               <h4 style={{ margin: 0, textAlign: "left" }}>Jane Doe</h4>
-              <p style={{ textAlign: "left" }}> 
+              <p style={{ textAlign: "left", margin: "8px 0" }}> 
               Where should we meet?
               
                 {" "}
               </p>
-              <p style={{ textAlign: "left", color: "gray" }}>
+              <p style={{ textAlign: "left", color: "gray", margin: "8px 0" }}>
                 posted 1 minute ago
               </p>
-              <CardActions><QuestionAnswerOutlinedIcon/>Reply</CardActions>
             </Grid>
           </Grid>
           
@@ -51,13 +51,12 @@ function ReplyCard() {
             </Grid>
             <Grid justifyContent="left" item xs zeroMinWidth>
               <h4 style={{ margin: 0, textAlign: "left" }}>Remy Sharp</h4>
-              <p style={{ textAlign: "left" }}>The plan is still up in the air, and we will see what everyone else who wants to do this, says.
+              <p style={{ textAlign: "left", margin: "8px 0" }}>The plan is still up in the air, and we will see what everyone else who wants to do this says.
                 {" "}
               </p>
-              <p style={{ textAlign: "left", color: "gray" }}>
+              <p style={{ textAlign: "left", color: "gray", margin: "8px 0" }}>
                 posted 1 minute ago
               </p>
-              <CardActions><QuestionAnswerOutlinedIcon/>Reply</CardActions>
             </Grid>
           </Grid>
           
@@ -71,13 +70,12 @@ function ReplyCard() {
             </Grid>
             <Grid justifyContent="left" item xs zeroMinWidth>
               <h4 style={{ margin: 0, textAlign: "left" }}>Jane Doe</h4>
-              <p style={{ textAlign: "left" }}> I am interested. If anyone needs to arrange a ride, let me know.  We should make a list of things we need.
+              <p style={{ textAlign: "left", margin: "8px 0" }}> I am interested. If anyone needs to arrange a ride, let me know.  We should make a list of things we need.
                 {" "}
               </p>
-              <p style={{ textAlign: "left", color: "gray" }}>
+              <p style={{ textAlign: "left", color: "gray", margin: "8px 0" }}>
                 posted 1 minute ago
               </p>
-              <CardActions><QuestionAnswerOutlinedIcon/>Reply</CardActions>
             </Grid>
           </Grid>
           
