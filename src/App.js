@@ -24,11 +24,11 @@ function App() {
     },
     {
       id: 1,
-      title: "Weekly",
+      title: "Weekly Fortnite Party",
       img_desc: "fortnite",
       category: "Games",
       location: "Online",
-      description: "Bored of Covid!",
+      description: "Bored of Covid isolation? Hang out with us online for a game session!",
       startDate: "Tonight, 9pm",
       endDate: "End Date"
     },
