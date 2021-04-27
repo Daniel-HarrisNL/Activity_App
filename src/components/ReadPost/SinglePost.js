@@ -3,7 +3,7 @@ import Feed from '../Feed/Feed';
 import InterestedModal from './InterestedModal';
 import ReplyModal from './ReplyModal';
 import { Divider } from '@material-ui/core';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Link, useParams} from 'react-router-dom'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 
@@ -19,7 +19,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import avatar from '../../assets/avatar.png';
 
-function CommentCard() {
+function CommentCard(props) {
 
   const theme = createMuiTheme({
     palette: {
@@ -114,9 +114,19 @@ function CommentCard() {
     )
   }
   
-  
-    const classes = useStyles();
     
+    const classes = useStyles();
+    //Uses url parameter ID to get the correct post data
+    const { postID } = useParams();
+    let postArray = props.feedData;
+    let postContent = postArray[postID]
+    
+    let postTitle = postContent.title;
+    let postCategory = postContent.category;
+    let postLocation = postContent.location;
+    let postDescription = postContent.description;
+    let postStartDate = postContent.startDate;
+    let postEndDate = postContent.endDate;
     
 
 
@@ -131,15 +141,15 @@ function CommentCard() {
         }
         className={classes.title}
         title={ <Typography gutterBottom variant="h5" component="h2">
-          Looking for biking friends
+          {postTitle}
         </Typography>}
-        subheader="TimeStamp Placeholder"
+        subheader={`${postStartDate} ${postLocation}`}
       />
       <Divider className={classes.dividerColor} />
       <CardContent>
         <ThemeProvider theme={theme}>
         <Typography color="primary" component="p" className={classes.textArea}>
-        “Hey all!  I am looking to organize a biking trip for this weekend.  Hoping to find a few friends who are interested.”
+          {postDescription} 
         </Typography>
         </ThemeProvider>
       </CardContent>

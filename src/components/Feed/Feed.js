@@ -1,15 +1,15 @@
 import Activity from "./Activity";
 import ScrollMenu from "./ScrollMenu";
 import SearchBar from "./SearchBar";
-import { useParams } from "react-router-dom";
+
 
 import { FontAwesomeIcon as FAIcon} from '@fortawesome/react-fontawesome';
 import { faVideo, faStickyNote } from '@fortawesome/free-solid-svg-icons';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Feed(props) {
   let feedArray = props.feedData;
-
+  
   const { cat } = useParams();
 
   return (
@@ -19,7 +19,6 @@ function Feed(props) {
         <SearchBar />
       </div>
       <div className="act-feed">
-      <Link style={{textDecoration: 'none', color: 'inherit'}} to="/singlepost">
         {cat === undefined ?
         feedArray.map((e)=>{
           return (
@@ -28,6 +27,7 @@ function Feed(props) {
               img_desc={e.img_desc}
               title={e.title}
               category={e.category}
+              
             />
             );
           }) :
@@ -42,7 +42,7 @@ function Feed(props) {
             );
           })  
         }
-        </Link>
+        
       </div>
       <div className="post-buttons">
         <Link to="/post">

@@ -96,8 +96,8 @@ function App() {
             <Route path="/"     exact render={()=><Feed feedData={feedArray}/>}/>
             <Route path="/feed" exact render={()=><Feed feedData={feedArray}/>} />
             <Route path="/feed/:cat"  render={()=><Feed feedData={feedArray}/>} />
-            <Route path="/post"       component={Post}/>
-            <Route path="/singlepost" component={SinglePost} />
+            <Route path="/post"       render={()=><Post feedData={feedArray}/>}/>
+            <Route path="/singlepost/:postID" render={()=><SinglePost feedData={feedArray}/>} />
           </Switch>
         </div>
         <div className="footer">
