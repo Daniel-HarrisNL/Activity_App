@@ -12,12 +12,48 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 
-function Form() {
+function Form(props) {
+  // State data currently doesn't work properly. Does not harm the program as is however. The attempt is to submit the form data and push to the main feedArray, and re-render the feed with the new post.
+  let dataArray = props.feedData;
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let newPost = {
+      id: dataArray.length,
+      title: title,
+      img_desc: "school",
+      category: category,
+      location: location,
+      description: "Description",
+      startDate: startDate,
+      endDate: endDate
+    }
+    props.feedData.push(newPost); 
+  };
   
+  const [title, setTitle] = useState('')
+  const handleTitleChange = (event) => {
+  setTitle(event.target.value);
+  };
+
   const [category, setCategory] = useState('')
-  
   const handleCategoryChange = (event) => {
   setCategory(event.target.value);
+  };
+
+  const [location, setLocation] = useState('')
+  const handleLocationChange = (event) => {
+  setLocation(event.target.value);
+  };
+
+  const [startDate, setStartDate] = useState('')
+  const handleStartChange = (event) => {
+  setStartDate(event.target.value);
+  };
+
+  const [endDate, setEndDate] = useState('')
+  const handleEndChange = (event) => {
+  setEndDate(event.target.value);
   };
   
   const useStyles = makeStyles((theme) => ({
@@ -35,13 +71,15 @@ function Form() {
   const classes = useStyles()
     
   return (
-    <div className="main-ext stretched">
+    <form onSubmit={handleSubmit} className="main-ext stretched">
       <div className="required">* Required fields</div>
       <TextField 
         label="Title" 
         variant="outlined" 
         fullWidth={true}
         required={true}
+        value={title}
+        onChange={handleTitleChange}
       />
         
       <FormControl variant="outlined" className="text-field-margin" fullWidth={true} required={true}>
@@ -67,10 +105,12 @@ function Form() {
         label="Location" 
         variant="outlined" 
         fullWidth={true}
+        value={location}
+        onChange={handleLocationChange}
       />
       
       <div className="date-entry"> 
-        <form className={classes.container} noValidate>
+        <div className={classes.container} noValidate>
           <TextField
             id="datetime-local-start"
             label="Start Date/Time"
@@ -80,9 +120,11 @@ function Form() {
             InputLabelProps={{
               shrink: true,
             }}
+            value={startDate}
+            onChange={handleStartChange}
           />
-        </form>
-        <form className={classes.container} noValidate>
+        </div>
+        <div className={classes.container} noValidate>
           <TextField
             id="datetime-local-end"
             label="End Date/Time"
@@ -91,8 +133,10 @@ function Form() {
             InputLabelProps={{
               shrink: true,
             }}
+            value={endDate}
+            onChange={handleEndChange}
           />
-        </form>
+        </div>
       </div>
       <TextArea></TextArea>
 
@@ -102,7 +146,7 @@ function Form() {
         <div className="media-buttons">Record Video<br />
         <FAIcon icon={faVideo} color="red" size="2x" /></div>
       </div>
-    </div>
+    </form>
   )
 }
 
