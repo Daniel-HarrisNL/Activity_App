@@ -132,7 +132,7 @@ function CommentCard(props) {
 
     return (
       <div>
-      <div className={classes.viewHeight}>
+      {/* <div className={classes.viewHeight}> */}
         <div className="main-ext ">
     <Card className={classes.root}>
       <CardHeader
@@ -156,7 +156,7 @@ function CommentCard(props) {
     
     </Card>
     <ReplyCard/>
-    </div>
+    {/* </div> */}
     </div>
     <div className="post-buttons single-post">
       <InterestedModal />

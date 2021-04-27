@@ -47,10 +47,10 @@ function ReplyModal() {
   return (
     <div>
      
-      <IconButton type="button" onClick={handleOpen} aria-label="comment">
-          <QuestionAnswerOutlinedIcon fontSize="large" style={{color: 'black'}} />
-          <h6 style={{color: 'black'}} >-Comment</h6>
-      </IconButton>
+      <button className="btn large blue-btn" onClick={handleOpen} aria-label="Comment">
+      Comment&nbsp;<QuestionAnswerOutlinedIcon fontSize="medium" style={{color: 'red'}} />
+          
+      </button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
