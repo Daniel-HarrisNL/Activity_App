@@ -42,7 +42,7 @@ function CommentCard(props) {
   
   const useStyles = makeStyles((theme) => ({
     root: {
-      maxWidth: 390,
+      width: '100%',
       background: '#4892BC',
       border: '1px solid rgba(0, 0, 0, 0.28)',
       boxSizing: 'border-box',
