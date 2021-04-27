@@ -1,63 +1,16 @@
 import Activity from "./Activity";
 import ScrollMenu from "./ScrollMenu";
 import SearchBar from "./SearchBar";
+import { useParams } from "react-router-dom";
 
 import { FontAwesomeIcon as FAIcon} from '@fortawesome/react-fontawesome';
 import { faVideo, faStickyNote } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 
-function Feed({match}) {
-  const feedArray = [
-    {
-      id: 0,
-      title: "Looking for biking friends for a trip this weekend",
-      img_desc: "biking",
-      category: "Outdoor"
-    },
-    {
-      id: 1,
-      title: "Weekly Fortnite Party",
-      img_desc: "fortnite",
-      category: "Games"
-    },
-    {
-      id: 2,
-      title: "First time rock climbing group going this weekend, available to all.",
-      img_desc: "rock,climbing",
-      category: "Outdoor"
-    },
-    {
-      id: 3,
-      title: "Yoga class - 3 times a week",
-      img_desc: "yoga",
-      category: "Gym"
-    },
-    {
-      id: 4,
-      title: "Anyone want a fishing buddy?",
-      img_desc: "fishing",
-      category: "Outdoor"
-    },
-    {
-      id: 5,
-      title: "Poetry Open Night",
-      img_desc: "poetry",
-      category: "Cafe"
-    },
-    {
-      id: 6,
-      title: "Swim group, we meet every 2nd Thursday.",
-      img_desc: "swimming",
-      category: "Sports"
-    }
-  ];
+function Feed(props) {
+  let feedArray = props.feedData;
 
-  let search;
-  if (match.params.cat === undefined) {
-    search = "all";
-  } else {
-    search = match.params.cat;  
-  }
+  const { cat } = useParams();
 
   return (
     <>
@@ -67,7 +20,7 @@ function Feed({match}) {
       </div>
       <div className="act-feed">
       <Link style={{textDecoration: 'none', color: 'inherit'}} to="/singlepost">
-        {search === "all" ?
+        {cat === undefined ?
         feedArray.map((e)=>{
           return (
             <Activity
@@ -78,7 +31,7 @@ function Feed({match}) {
             />
             );
           }) :
-        feedArray.filter(it => it.category === search).map((e)=>{
+        feedArray.filter(it => it.category === cat).map((e)=>{
           return (
             <Activity 
               id={e.id} 
