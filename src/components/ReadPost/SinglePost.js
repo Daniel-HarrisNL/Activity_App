@@ -143,7 +143,7 @@ function CommentCard(props) {
         title={ <Typography gutterBottom variant="h5" component="h2">
           {postTitle}
         </Typography>}
-        subheader={`${postStartDate} ${postLocation}`}
+        subheader={`${postStartDate} | ${postLocation}`}
       />
       <Divider className={classes.dividerColor} />
       <CardContent>

@@ -17,9 +17,9 @@ function App() {
       title: "Looking for biking friends for a trip this weekend",
       img_desc: "biking",
       category: "Outdoor",
-      location: "Location",
-      description: "Description",
-      startDate: "Start Date",
+      location: "Red Cliff trail",
+      description: "I wanted to do a bit of mountain biking, anyone down to take a trip up the trail with me?",
+      startDate: "Saturday-Sunday",
       endDate: "End Date"
     },
     {
@@ -27,9 +27,9 @@ function App() {
       title: "Weekly Fortnite Party",
       img_desc: "fortnite",
       category: "Games",
-      location: "Location",
-      description: "Description",
-      startDate: "Start Date",
+      location: "Online",
+      description: "Bored of Covid isolation? Hang out with us online for a game session!",
+      startDate: "Tonight, 9pm",
       endDate: "End Date"
     },
     {
@@ -37,9 +37,9 @@ function App() {
       title: "First time rock climbing group going this weekend, available to all.",
       img_desc: "rock,climbing",
       category: "Outdoor",
-      location: "Location",
-      description: "Description",
-      startDate: "Start Date",
+      location: "Contact me",
+      description: "We ordered a group package deal, if anyone wants to get in on this drop me a message!",
+      startDate: "Saturday",
       endDate: "End Date"
     },
     {
@@ -47,9 +47,9 @@ function App() {
       title: "Yoga class - 3 times a week",
       img_desc: "yoga",
       category: "Gym",
-      location: "Location",
-      description: "Description",
-      startDate: "Start Date",
+      location: "Campus Gym",
+      description: "There's a small $15 fee to cover equipment rentals! Water and light snacks provided.",
+      startDate: "Monday, Wednesday, Friday",
       endDate: "End Date"
     },
     {
@@ -57,9 +57,9 @@ function App() {
       title: "Anyone want a fishing buddy?",
       img_desc: "fishing",
       category: "Outdoor",
-      location: "Location",
-      description: "Description",
-      startDate: "Start Date",
+      location: "Trout Pond",
+      description: "I got a small boat but all my friends are busy, anyone want to go out for a trip?",
+      startDate: "Contact me",
       endDate: "End Date"
     },
     {
@@ -67,9 +67,9 @@ function App() {
       title: "Poetry Open Night",
       img_desc: "poetry",
       category: "Cafe",
-      location: "Location",
-      description: "Description",
-      startDate: "Start Date",
+      location: "Campus library",
+      description: "Come join us! I bet you're a poet and you didn't even know it.",
+      startDate: "Tuesday April 27, 7pm",
       endDate: "End Date"
     },
     {
@@ -77,9 +77,9 @@ function App() {
       title: "Swim group, we meet every 2nd Thursday.",
       img_desc: "swimming",
       category: "Sports",
-      location: "Location",
-      description: "Description",
-      startDate: "Start Date",
+      location: "Local pool",
+      description: "Anyone can join, lots of fun! Dont wanna miss out on some water games.",
+      startDate: "Thursday",
       endDate: "End Date"
     }
   ];
