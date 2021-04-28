@@ -1,5 +1,7 @@
 import { useState } from 'react';
+
 import TextArea from './TextArea';
+import Buttons from './Buttons';
 
 import { FontAwesomeIcon as FAIcon} from '@fortawesome/react-fontawesome';
 import { faVideo } from '@fortawesome/free-solid-svg-icons';
@@ -146,6 +148,7 @@ function Form(props) {
         <div className="media-buttons">Record Video<br />
         <FAIcon icon={faVideo} color="red" size="2x" /></div>
       </div>
+      <Buttons></Buttons>              
     </form>
   )
 }

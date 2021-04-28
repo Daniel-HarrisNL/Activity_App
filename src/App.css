@@ -152,6 +152,7 @@ button {
   margin: 16px;
   justify-content: center;
   align-items: stretch;
+  cursor: pointer;
 }
 
 /* TO DELETE */
