@@ -1,10 +1,10 @@
-import React, { useState, props} from 'react'
+import React, { useState } from 'react'
 import '../../App.css';
 
 import InterestedModal from './InterestedModal';
 import ReplyModal from './ReplyModal';
 import { Divider } from '@material-ui/core';
-import {BrowserRouter as Router, Switch, Route, Link, useParams} from 'react-router-dom'
+import {BrowserRouter as useParams} from 'react-router-dom'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 

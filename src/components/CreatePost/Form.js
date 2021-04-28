@@ -57,7 +57,17 @@ function Form(props) {
   const handleEndChange = (event) => {
   setEndDate(event.target.value);
   };
-  
+ 
+  const [startTime, setStartTime] = useState('')
+  const handleStartTimeChange = (event) => {
+  setStartTime(event.target.value);
+  };
+
+  const [endTime, setEndTime] = useState('')
+  const handleEndTimeChange = (event) => {
+  setEndTime(event.target.value);
+  };
+
   const useStyles = makeStyles((theme) => ({
     container: {
       display: 'flex',
@@ -102,7 +112,6 @@ function Form(props) {
           <MenuItem value={"Other"}>Other</MenuItem>
         </Select>
       </FormControl>
-
       <TextField 
         label="Location" 
         variant="outlined" 
@@ -114,9 +123,9 @@ function Form(props) {
       <div className="date-entry"> 
         <div className={classes.container} noValidate>
           <TextField
-            id="datetime-local-start"
-            label="Start Date/Time"
-            type="datetime-local"
+            id="date-start"
+            label="Start Date"
+            type="date"
             className={classes.textField}
             required={true}
             InputLabelProps={{
@@ -128,9 +137,9 @@ function Form(props) {
         </div>
         <div className={classes.container} noValidate>
           <TextField
-            id="datetime-local-end"
-            label="End Date/Time"
-            type="datetime-local"
+            id="date-end"
+            label="End Date"
+            type="date"
             className={classes.textField}
             InputLabelProps={{
               shrink: true,
@@ -139,6 +148,34 @@ function Form(props) {
             onChange={handleEndChange}
           />
         </div>
+        <div className={classes.container} noValidate>
+          <TextField
+            id="time-start"
+            label="Start Time"
+            type="time"
+            className={classes.textField}
+            required={true}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            value={startTime}
+            onChange={handleStartTimeChange}
+          />
+        </div>
+        <div className={classes.container} noValidate>
+          <TextField
+            id="time-end"
+            label="End Time"
+            type="time"
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            value={endTime}
+            onChange={handleEndTimeChange}
+          />
+        </div>
+        
       </div>
       <TextArea></TextArea>
 
