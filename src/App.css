@@ -110,7 +110,7 @@ button {
 }
 
 .main-ext {
-  grid-column: 1 / 4;
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -123,7 +123,8 @@ button {
 
 .stretched {
   margin-top: 8px;
-  height: 600px;
+  height: calc(100vh - 132px);
+  min-height: 620px;
 }
 
 .footer-img {
