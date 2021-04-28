@@ -88,14 +88,18 @@ function Form(props) {
             id="cat-select-outlined"
             onChange={(e) => addNewPost(e, "category")}
             label="Category"
+            defaultValue="Other"
         >
             
-          <MenuItem value={"Cafe"}>Cafe</MenuItem>
-          <MenuItem value={"Sports"}>Sports</MenuItem>
-          <MenuItem value={"Outdoor"}>Outdoor</MenuItem>
-          <MenuItem value={"Meet Up"}>Meet Up</MenuItem>
-          <MenuItem value={"Science"}>Science</MenuItem>
-          <MenuItem value={"Other"}>Other</MenuItem>
+          <MenuItem value={"Cafe"}    >Cafe</MenuItem>
+          <MenuItem value={"Chat"}    >Chat</MenuItem>
+          <MenuItem value={"Gym"}     >Gym</MenuItem>
+          <MenuItem value={"Games"}   >Games</MenuItem>
+          <MenuItem value={"Meet Up"} >Meet Up</MenuItem>
+          <MenuItem value={"Outdoor"} >Outdoor</MenuItem>
+          <MenuItem value={"Sports"}  >Sports</MenuItem>
+          <MenuItem value={"Science"} >Science</MenuItem>
+          <MenuItem value={"Other"}   >Other</MenuItem>
         </Select>
       </FormControl>
 
