@@ -45,6 +45,7 @@ button {
     "post";
 }
 
+/* TO DELETE */
 .search {
   grid-area: search;
   padding: 8px 0 8px 0;
@@ -53,13 +54,13 @@ button {
 
 .feed-container {
   grid-area: main;
-  background-color: #ffffff;
   text-align: center;
   width: 100%;
   margin: 0;
   overflow: auto;
 }
 
+/* TO DELETE */
 .act-feed {
   grid-area: feed;
   overflow: auto;
@@ -76,6 +77,7 @@ button {
   border-top: 0.5px solid #ddddddaa;
 }
 
+/* TO DELETE */
 .footer {
   grid-area: footer;
   text-align: center;
@@ -85,6 +87,7 @@ button {
   border-top: 0.5px solid #ddddddaa;
 }
 
+/* TO DELETE */
 .nav-bar {
   width: calc(100%);
   display: flex;
@@ -126,6 +129,7 @@ button {
   height: 600px;
 }
 
+/* TO DELETE */
 .footer-img {
   display: flex;
   justify-content: center;
@@ -133,6 +137,9 @@ button {
 }
 
 /* -------- Feed Styling ------------------------------------------------------------ */
+
+
+/* TO DELETE */
 .act-container {
   position: relative;
   display: flex;
@@ -147,6 +154,7 @@ button {
   align-items: stretch;
 }
 
+/* TO DELETE */
 .act-info {
   display: grid;
   grid-template-rows: 2fr 1fr;
@@ -209,6 +217,7 @@ button {
   height: 32px;
   border-radius: 8px;
   font-size: 1.25rem;
+  border-color: black;
 }
 
 .search-form {
@@ -218,6 +227,7 @@ button {
   padding: 0;
 }
 
+/* TO DELETE */
 .search-input {
   width: 80%;
   height: 100%;
@@ -231,6 +241,7 @@ button {
   padding: 0;
 }
 
+/* TO DELETE */
 .search-button {
   width: 20%;
   height: 100%;
@@ -239,6 +250,7 @@ button {
   float: left;
   border-radius: 0 8px 8px 0;
   padding: 0;
+  border-color:black;
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -440,6 +452,7 @@ h2 {
   width: 32px;
 }
 
+/* TO DELETE */
 .post-buttons {
   display: flex;
   flex-direction: row;
@@ -461,10 +474,12 @@ h2 {
   text-decoration: none;
 }
 
+/* TO DELETE */
 .black-btn {
   background-color: #121212;
 }
 
+/* TO DELETE */
 .blue-btn {
   background-color: #354787;
 }
