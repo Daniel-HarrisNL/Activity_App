@@ -14,7 +14,8 @@ import MeetUp  from "../../assets/users.png";
 import Science from "../../assets/rocket.png";
 import Chat    from "../../assets/chat.png";
 
-function ScrollMenu() {
+function ScrollMenu(props) {
+  let searchCat = props.category;
   const [drawerOpen, setDrawerOpen] = useState(false);
     
     const openDrawer = () => {
@@ -39,7 +40,7 @@ function ScrollMenu() {
     return (
       <>
         <button className="category-btn black-btn" id="category-button" onClick={openDrawer} >
-          Sort By Category
+          Category
         </button>
         <Drawer open={drawerOpen} onClose={closeDrawer}>
           <List>
