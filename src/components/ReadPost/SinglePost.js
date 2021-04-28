@@ -1,5 +1,6 @@
 import React, { useState, props} from 'react'
-import Feed from '../Feed/Feed';
+import '../../App.css';
+
 import InterestedModal from './InterestedModal';
 import ReplyModal from './ReplyModal';
 import { Divider } from '@material-ui/core';
@@ -8,7 +9,7 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
+
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import ReplyCard from './ReplyCard';
@@ -60,7 +61,7 @@ function CommentCard(props) {
     },
     dividerColor: {
       backgroundColor: 'white',
-      width: '80%',
+      width: '100%',
       margin: 'auto'
     },
     textArea: {
@@ -133,6 +134,7 @@ function CommentCard(props) {
 
 
     return (
+     
       <div>
       {/* <div className={classes.viewHeight}> */}
         <div className="main-ext ">
@@ -145,7 +147,7 @@ function CommentCard(props) {
         title={ <Typography gutterBottom variant="h5" component="h2">
           {postTitle}
         </Typography>}
-        subheader={`${postStartDate} | ${postLocation}`}
+        subheader={<Typography gutterBottom variant="h6" style={{color: 'lightgrey'}} component="p"> {`${postStartDate} | ${postLocation}`} </Typography>}
       />
       <Divider className={classes.dividerColor} />
       <CardContent>
@@ -165,6 +167,7 @@ function CommentCard(props) {
       <ReplyModal/>
     </div>
     </div>
+    
     )
 };
 
