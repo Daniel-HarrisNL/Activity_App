@@ -39,7 +39,7 @@ function ScrollMenu() {
     return (
       <>
         <button className="category-btn black-btn" id="category-button" onClick={openDrawer} >
-          Sort By Category
+          Categories
         </button>
         <Drawer open={drawerOpen} onClose={closeDrawer}>
           <List>
