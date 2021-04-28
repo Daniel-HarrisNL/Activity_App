@@ -445,6 +445,7 @@ h2 {
   flex-direction: row;
   justify-content: space-between;
   padding: 8px;
+  border-top: 0.5px solid #ddddddaa;
 }
 
 .media-buttons {
@@ -470,11 +471,9 @@ h2 {
 
 .single-post {
   width: 100%;
-
   position: relative;
   bottom: 0;
   position: -webkit-sticky; /* Safari */
   position: sticky;
-
-  background-color: #e8e8e8;
+  background-color: #FFFFFF;
 }
