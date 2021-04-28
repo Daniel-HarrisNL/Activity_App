@@ -119,8 +119,10 @@ function CommentCard(props) {
     const classes = useStyles();
     //Uses url parameter ID to get the correct post data
     const { postID } = useParams();
+    console.log(props.feedData)
+
     let postArray = props.feedData;
-    let postContent = postArray[postID]
+    let postContent = postArray.find(post => post.id === postID)
     
     let postTitle = postContent.title;
     let postCategory = postContent.category;

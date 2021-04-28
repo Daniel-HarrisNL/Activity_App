@@ -1,0 +1,40 @@
+.text-field {
+  position: relative;
+  margin: 10px 2.5px 20px 2.5px;
+}
+
+input.tf {
+  width: 100%;
+  display: inline-block;
+  border: thin solid #fafafa;
+  border-bottom: solid medium #999;
+  color: #444;
+  background-color: #fafafa;
+  padding: 10px 10px 10px 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+input.tf:focus {
+      border: thin solid #32cd32;
+      border-bottom: solid medium #32cd32;
+      background-color:#fff;
+  }
+
+label.tfl {
+  color: #999;
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 10px;
+  transition: 0.2s;
+}
+
+input.tf:focus ~ label.tfl, input.tf:valid ~ label.tfl {
+  top: -10px;
+  left: 15px;
+  font-size: small;
+  color: #32cd32;
+  background-color:#fff;
+  padding:0 5px 0 5px;
+}

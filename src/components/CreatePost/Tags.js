@@ -58,17 +58,6 @@ function MultipleSelect() {
     setPersonName(event.target.value);
   };
 
-  // const handleChangeMultiple = (event) => {
-  //   const { options } = event.target;
-  //   const value = [];
-  //   for (let i = 0, l = options.length; i < l; i += 1) {
-  //     if (options[i].selected) {
-  //       value.push(options[i].value);
-  //     }
-  //   }
-  //   setPersonName(value);
-  // };
-
   return (
     <div>
       
