@@ -5,7 +5,6 @@ $slash_replace = array("\"" => "&#34;", "'" => "&#39;", "," => "&#44;", "-" => "
 require "dbinfo.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
-$_POST = json_decode(file_get_contents("php://input"), true);
 
 if (!$con) {
   die("Connection failed: " . mysqli_connect_error());

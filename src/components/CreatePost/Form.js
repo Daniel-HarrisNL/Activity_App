@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Buttons from './Buttons';
 import Tags from './Tags';
@@ -14,16 +14,30 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
+import useMaterialUiStyleFixer from '../../useMaterialUiStyleFixer';
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 176,
+  },
+}));
 
 function Form(props) {
-  // State data currently doesn't work properly. Does not harm the program as is however. The attempt is to submit the form data and push to the main feedArray, and re-render the feed with the new post.
+  // State data currently doesn't work properly. Does not harm the program as is however.
+  // The attempt is to submit the form data and push to the main feedArray, and re-render the feed with the new post.
   // let dataArray = props.feedData;
   let userID   = sessionStorage.getItem("currentUserID");
   let userName = sessionStorage.getItem("currentName");
 
   const [newPost, setNewPost] = useState({"user_id": userID, "user_name": userName});
 
-  // Storing the Insert User Form Data.
+  // Storing the Insert Post Form Data.
   const addNewPost = (e, field) => {
     setNewPost({
       ...newPost,
@@ -31,7 +45,7 @@ function Form(props) {
     });
   };
 
-  // Inserting a new user into the Database.
+  // Inserting a new post into the Database.
   const submitPost = (e) => {
     e.preventDefault();
     insertPost(newPost);
@@ -46,30 +60,25 @@ function Form(props) {
   
   const insertPost = (newPost) => {
     let newPostData = getFormData(newPost);
-    
-    axios("http://johnny-o.net/activity-app/php-react/add-post.php", {
+    console.log("NEW POST:")
+    console.log(newPost);
+    fetch("http://johnny-o.net/activity-app/php-react/add-post.php", {
       method: "POST",
+      mode: 'cors',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(newPost),
     })
   };
+ 
+  const classes = useStyles();
 
-  const useStyles = makeStyles((theme) => ({
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-    },
-    textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: 176,
-    },
-  }));
-  
-  const classes = useStyles()
-    
+  //Add this code to *any* page that has issues with material ui styling and it should fix it.
+  //This is stupid, but it works. What a hack.
+  useMaterialUiStyleFixer();
+
   return (
     <form onSubmit={submitPost} className="main-ext stretched">
       <div className="required">* Required fields</div>
@@ -77,11 +86,11 @@ function Form(props) {
         label="Title" 
         variant="outlined" 
         fullWidth={true}
-        required={true}
+        // required={true}
         onChange={(e) => addNewPost(e, "title")}
       />
         
-      <FormControl variant="outlined" className="text-field-margin" fullWidth={true} required={true}>
+      <FormControl variant="outlined" className="text-field-margin" fullWidth={true}>
         <InputLabel>Category</InputLabel>
         <Select
             labelId="cat-select-outlined-label"
@@ -116,11 +125,11 @@ function Form(props) {
             label="Start Date"
             type="date"
             className={classes.textField}
-            required={true}
+            // required={true}
             InputLabelProps={{
               shrink: true,
             }}
-            onChange={(e) => addNewPost(e, "start_datetime")}
+            onChange={(e) => addNewPost(e, "start_date")}
           />
         </div>
         <div className={classes.container} noValidate>
@@ -132,7 +141,7 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
-            onChange={(e) => addNewPost(e, "end_datetime")}
+            onChange={(e) => addNewPost(e, "end_date")}
           />
         </div>
         <div className={classes.container} noValidate>
@@ -145,8 +154,7 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
-            value={startTime}
-            onChange={handleStartTimeChange}
+            onChange={onChange={(e) => addNewPost(e, "start_time")}}
           />
         </div>
         <div className={classes.container} noValidate>
@@ -158,11 +166,9 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
-            value={endTime}
-            onChange={handleEndTimeChange}
+            onChange={onChange={(e) => addNewPost(e, "end_time")}}
           />
         </div>
-        
       </div>
       <div className="text-area-div">
         <TextField
@@ -171,7 +177,7 @@ function Form(props) {
           rows={4}
           variant="outlined"
           fullWidth={true}
-          required={true}
+          // required={true}
           onChange={(e) => addNewPost(e, "description")}
         />
         <div className="tags">
