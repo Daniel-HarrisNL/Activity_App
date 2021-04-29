@@ -16,14 +16,15 @@ import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 
 function Form(props) {
-  // State data currently doesn't work properly. Does not harm the program as is however. The attempt is to submit the form data and push to the main feedArray, and re-render the feed with the new post.
+  // State data currently doesn't work properly. Does not harm the program as is however.
+  // The attempt is to submit the form data and push to the main feedArray, and re-render the feed with the new post.
   // let dataArray = props.feedData;
   let userID   = sessionStorage.getItem("currentUserID");
   let userName = sessionStorage.getItem("currentName");
 
   const [newPost, setNewPost] = useState({"user_id": userID, "user_name": userName});
 
-  // Storing the Insert User Form Data.
+  // Storing the Insert Post Form Data.
   const addNewPost = (e, field) => {
     setNewPost({
       ...newPost,
@@ -31,7 +32,7 @@ function Form(props) {
     });
   };
 
-  // Inserting a new user into the Database.
+  // Inserting a new post into the Database.
   const submitPost = (e) => {
     e.preventDefault();
     insertPost(newPost);
