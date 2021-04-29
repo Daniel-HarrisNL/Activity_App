@@ -154,7 +154,7 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
-            onChange={onChange={(e) => addNewPost(e, "start_time")}}
+            onChange={(e) => addNewPost(e, "start_time")}
           />
         </div>
         <div className={classes.container} noValidate>
@@ -166,7 +166,7 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
-            onChange={onChange={(e) => addNewPost(e, "end_time")}}
+            onChange={(e) => addNewPost(e, "end_time")}
           />
         </div>
       </div>
