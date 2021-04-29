@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import TextArea from './TextArea';
 import Buttons from './Buttons';
+import Tags from './Tags';
+import axios from "axios"
 
 import { FontAwesomeIcon as FAIcon} from '@fortawesome/react-fontawesome';
 import { faVideo } from '@fortawesome/free-solid-svg-icons';
@@ -16,56 +17,43 @@ import { makeStyles } from '@material-ui/core/styles';
 
 function Form(props) {
   // State data currently doesn't work properly. Does not harm the program as is however. The attempt is to submit the form data and push to the main feedArray, and re-render the feed with the new post.
-  let dataArray = props.feedData;
+  // let dataArray = props.feedData;
+  let userID   = sessionStorage.getItem("currentUserID");
+  let userName = sessionStorage.getItem("currentName");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    let newPost = {
-      id: dataArray.length,
-      title: title,
-      img_desc: "school",
-      category: category,
-      location: location,
-      description: "Description",
-      startDate: startDate,
-      endDate: endDate
-    }
-    props.feedData.push(newPost); 
+  const [newPost, setNewPost] = useState({"user_id": userID, "user_name": userName});
+
+  // Storing the Insert User Form Data.
+  const addNewPost = (e, field) => {
+    setNewPost({
+      ...newPost,
+      [field]: e.target.value,
+    });
   };
+
+  // Inserting a new user into the Database.
+  const submitPost = (e) => {
+    e.preventDefault();
+    insertPost(newPost);
+    e.target.reset();
+    console.log(newPost);
+  };
+
+  const getFormData = object => Object.keys(object).reduce((formData, key) => {
+    formData.append(key, object[key]);
+    return formData;
+  }, new FormData());
   
-  const [title, setTitle] = useState('')
-  const handleTitleChange = (event) => {
-  setTitle(event.target.value);
-  };
-
-  const [category, setCategory] = useState('')
-  const handleCategoryChange = (event) => {
-  setCategory(event.target.value);
-  };
-
-  const [location, setLocation] = useState('')
-  const handleLocationChange = (event) => {
-  setLocation(event.target.value);
-  };
-
-  const [startDate, setStartDate] = useState('')
-  const handleStartChange = (event) => {
-  setStartDate(event.target.value);
-  };
-
-  const [endDate, setEndDate] = useState('')
-  const handleEndChange = (event) => {
-  setEndDate(event.target.value);
-  };
- 
-  const [startTime, setStartTime] = useState('')
-  const handleStartTimeChange = (event) => {
-  setStartTime(event.target.value);
-  };
-
-  const [endTime, setEndTime] = useState('')
-  const handleEndTimeChange = (event) => {
-  setEndTime(event.target.value);
+  const insertPost = (newPost) => {
+    let newPostData = getFormData(newPost);
+    
+    axios("http://johnny-o.net/activity-app/php-react/add-post.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPost),
+    })
   };
 
   const useStyles = makeStyles((theme) => ({
@@ -83,15 +71,14 @@ function Form(props) {
   const classes = useStyles()
     
   return (
-    <form onSubmit={handleSubmit} className="main-ext stretched">
+    <form onSubmit={submitPost} className="main-ext stretched">
       <div className="required">* Required fields</div>
       <TextField 
         label="Title" 
         variant="outlined" 
         fullWidth={true}
         required={true}
-        value={title}
-        onChange={handleTitleChange}
+        onChange={(e) => addNewPost(e, "title")}
       />
         
       <FormControl variant="outlined" className="text-field-margin" fullWidth={true} required={true}>
@@ -99,25 +86,27 @@ function Form(props) {
         <Select
             labelId="cat-select-outlined-label"
             id="cat-select-outlined"
-            value={category}
-            onChange={handleCategoryChange}
+            onChange={(e) => addNewPost(e, "category")}
             label="Category"
+            defaultValue="Other"
         >
             
-          <MenuItem value={"Cafe"}>Cafe</MenuItem>
-          <MenuItem value={"Sports"}>Sports</MenuItem>
-          <MenuItem value={"Outdoor"}>Outdoor</MenuItem>
-          <MenuItem value={"Meet Up"}>Meet Up</MenuItem>
-          <MenuItem value={"Science"}>Science</MenuItem>
-          <MenuItem value={"Other"}>Other</MenuItem>
+          <MenuItem value={"Cafe"}    >Cafe</MenuItem>
+          <MenuItem value={"Chat"}    >Chat</MenuItem>
+          <MenuItem value={"Gym"}     >Gym</MenuItem>
+          <MenuItem value={"Games"}   >Games</MenuItem>
+          <MenuItem value={"Meet Up"} >Meet Up</MenuItem>
+          <MenuItem value={"Outdoor"} >Outdoor</MenuItem>
+          <MenuItem value={"Sports"}  >Sports</MenuItem>
+          <MenuItem value={"Science"} >Science</MenuItem>
+          <MenuItem value={"Other"}   >Other</MenuItem>
         </Select>
       </FormControl>
       <TextField 
         label="Location" 
         variant="outlined" 
         fullWidth={true}
-        value={location}
-        onChange={handleLocationChange}
+        onChange={(e) => addNewPost(e, "location")}
       />
       
       <div className="date-entry"> 
@@ -131,8 +120,7 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
-            value={startDate}
-            onChange={handleStartChange}
+            onChange={(e) => addNewPost(e, "start_datetime")}
           />
         </div>
         <div className={classes.container} noValidate>
@@ -144,8 +132,7 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
-            value={endDate}
-            onChange={handleEndChange}
+            onChange={(e) => addNewPost(e, "end_datetime")}
           />
         </div>
         <div className={classes.container} noValidate>
@@ -177,8 +164,20 @@ function Form(props) {
         </div>
         
       </div>
-      <TextArea></TextArea>
-
+      <div className="text-area-div">
+        <TextField
+          label="Description"
+          multiline
+          rows={4}
+          variant="outlined"
+          fullWidth={true}
+          required={true}
+          onChange={(e) => addNewPost(e, "description")}
+        />
+        <div className="tags">
+          <label className="tags-label"><Tags/></label>
+        </div>
+      </div>
       <div className="attached">
         <div className="media-buttons">Attached Pic<br />
         <FAIcon icon={faImages} color="blue" size="2x" /></div>

@@ -15,7 +15,7 @@ function Feed(props) {
   return (
     <>
       <div className="search">
-        <ScrollMenu />
+        <ScrollMenu category={cat}/>
         <SearchBar />
       </div>
       <div className="act-feed">
@@ -24,7 +24,7 @@ function Feed(props) {
           return (
             <Activity
               id={e.id} 
-              img_desc={e.img_desc}
+              img_desc={e.tags}
               title={e.title}
               category={e.category}
               
