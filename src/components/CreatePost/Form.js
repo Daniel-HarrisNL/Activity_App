@@ -102,7 +102,6 @@ function Form(props) {
           <MenuItem value={"Other"}   >Other</MenuItem>
         </Select>
       </FormControl>
-
       <TextField 
         label="Location" 
         variant="outlined" 
@@ -113,9 +112,9 @@ function Form(props) {
       <div className="date-entry"> 
         <div className={classes.container} noValidate>
           <TextField
-            id="datetime-local-start"
-            label="Start Date/Time"
-            type="datetime-local"
+            id="date-start"
+            label="Start Date"
+            type="date"
             className={classes.textField}
             required={true}
             InputLabelProps={{
@@ -126,9 +125,9 @@ function Form(props) {
         </div>
         <div className={classes.container} noValidate>
           <TextField
-            id="datetime-local-end"
-            label="End Date/Time"
-            type="datetime-local"
+            id="date-end"
+            label="End Date"
+            type="date"
             className={classes.textField}
             InputLabelProps={{
               shrink: true,
@@ -136,6 +135,34 @@ function Form(props) {
             onChange={(e) => addNewPost(e, "end_datetime")}
           />
         </div>
+        <div className={classes.container} noValidate>
+          <TextField
+            id="time-start"
+            label="Start Time"
+            type="time"
+            className={classes.textField}
+            required={true}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            value={startTime}
+            onChange={handleStartTimeChange}
+          />
+        </div>
+        <div className={classes.container} noValidate>
+          <TextField
+            id="time-end"
+            label="End Time"
+            type="time"
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            value={endTime}
+            onChange={handleEndTimeChange}
+          />
+        </div>
+        
       </div>
       <div className="text-area-div">
         <TextField
