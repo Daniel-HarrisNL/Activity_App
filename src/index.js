@@ -4,6 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+/*window.addEventListener('load', ()=>{
+  let p = document.head.querySelectorAll("style[data-meta='makeStyles']")
+  p.forEach((e)=>document.head.removeChild(e));
+  p.forEach((e)=>document.head.appendChild(e));
+})*/
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

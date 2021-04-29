@@ -4,7 +4,7 @@ import '../../App.css';
 import InterestedModal from './InterestedModal';
 import ReplyModal from './ReplyModal';
 import { Divider } from '@material-ui/core';
-import {BrowserRouter as Router, Switch, Route, Link, useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 
@@ -16,12 +16,12 @@ import ReplyCard from './ReplyCard';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { makeStyles } from '@material-ui/core/styles';
-
+import useMUIFixer from '../../useMaterialUiStyleFixer'
 
 import avatar from '../../assets/avatar.png';
 
 function CommentCard(props) {
-
+  console.log(props);
   const theme = createMuiTheme({
     palette: {
       primary: {
@@ -114,12 +114,17 @@ function CommentCard(props) {
       </main>
     )
   }
-  
-    
+
     const classes = useStyles();
     //Uses url parameter ID to get the correct post data
     const { postID } = useParams();
+    console.log(postID);
     console.log(props.feedData)
+
+    useMUIFixer();
+    if(props.feedData.length === 0){
+      return <Typography>Loading... please wait!</Typography>
+    }
 
     let postArray = props.feedData;
     let postContent = postArray.find(post => post.id === postID)
@@ -131,7 +136,6 @@ function CommentCard(props) {
     let postStartDate = postContent.startDate;
     let postEndDate = postContent.endDate;
     
-
 
     return (
      

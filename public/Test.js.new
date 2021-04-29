@@ -9,7 +9,6 @@ import { faImages } from '@fortawesome/free-solid-svg-icons';
 function Test(props) {
     const submitPost = (e) => {}
 
-
     return (
       <form onSubmit={submitPost} className="main-ext stretched">
         <div className="required">* Required fields</div>

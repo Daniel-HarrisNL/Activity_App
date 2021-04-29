@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import ListItemText from '@material-ui/core/ListItemText';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox';
+import {StylesProvider} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -59,6 +60,7 @@ function MultipleSelect() {
   };
 
   return (
+    <StylesProvider>
     <div>
       
       <FormControl  className={classes.formControl}>
@@ -83,6 +85,7 @@ function MultipleSelect() {
       </FormControl>
   
     </div>
+    </StylesProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Buttons from './Buttons';
 import Tags from './Tags';
@@ -14,6 +14,19 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
+import useMaterialUiStyleFixer from '../../useMaterialUiStyleFixer';
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 176,
+  },
+}));
 
 function Form(props) {
   // State data currently doesn't work properly. Does not harm the program as is however.
@@ -47,30 +60,25 @@ function Form(props) {
   
   const insertPost = (newPost) => {
     let newPostData = getFormData(newPost);
-    
-    axios("http://johnny-o.net/activity-app/php-react/add-post.php", {
+    console.log("NEW POST:")
+    console.log(newPost);
+    fetch("http://johnny-o.net/activity-app/php-react/add-post.php", {
       method: "POST",
+      mode: 'cors',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(newPost),
     })
   };
+ 
+  const classes = useStyles();
 
-  const useStyles = makeStyles((theme) => ({
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-    },
-    textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: 176,
-    },
-  }));
-  
-  const classes = useStyles()
-    
+  //Add this code to *any* page that has issues with material ui styling and it should fix it.
+  //This is stupid, but it works. What a hack.
+  useMaterialUiStyleFixer();
+
   return (
     <form onSubmit={submitPost} className="main-ext stretched">
       <div className="required">* Required fields</div>
@@ -78,11 +86,11 @@ function Form(props) {
         label="Title" 
         variant="outlined" 
         fullWidth={true}
-        required={true}
+        // required={true}
         onChange={(e) => addNewPost(e, "title")}
       />
         
-      <FormControl variant="outlined" className="text-field-margin" fullWidth={true} required={true}>
+      <FormControl variant="outlined" className="text-field-margin" fullWidth={true}>
         <InputLabel>Category</InputLabel>
         <Select
             labelId="cat-select-outlined-label"
@@ -114,7 +122,7 @@ function Form(props) {
             label="Start Date/Time"
             type="datetime-local"
             className={classes.textField}
-            required={true}
+            // required={true}
             InputLabelProps={{
               shrink: true,
             }}
@@ -133,6 +141,33 @@ function Form(props) {
             onChange={(e) => addNewPost(e, "end_datetime")}
           />
         </div>
+<<<<<<< Updated upstream
+=======
+        <div className={classes.container} noValidate>
+          <TextField
+            id="time-start"
+            label="Start Time"
+            type="time"
+            className={classes.textField}
+            required={true}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </div>
+        <div className={classes.container} noValidate>
+          <TextField
+            id="time-end"
+            label="End Time"
+            type="time"
+            className={classes.textField}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </div>
+        
+>>>>>>> Stashed changes
       </div>
       <div className="text-area-div">
         <TextField
@@ -141,7 +176,7 @@ function Form(props) {
           rows={4}
           variant="outlined"
           fullWidth={true}
-          required={true}
+          // required={true}
           onChange={(e) => addNewPost(e, "description")}
         />
         <div className="tags">
