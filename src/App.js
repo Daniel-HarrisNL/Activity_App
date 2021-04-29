@@ -9,8 +9,6 @@ import Feed from "./components/Feed/Feed";
 import Post from "./components/CreatePost/Post";
 import SinglePost from "./components/ReadPost/SinglePost";
 ///import Test from "./components/CreatePost/Test";
-import {createMuiTheme} from '@material-ui/core';
-import {StylesProvider, ThemeProvider} from '@material-ui/core/styles';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {

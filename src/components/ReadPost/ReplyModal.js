@@ -1,8 +1,6 @@
-import React, { useState, props } from 'react';
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
-import IconButton from '@material-ui/core/IconButton';
-import MessageOutlinedIcon from '@material-ui/icons/MessageOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
