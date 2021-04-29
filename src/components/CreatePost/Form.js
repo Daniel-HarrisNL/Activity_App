@@ -97,17 +97,20 @@ function Form(props) {
             id="cat-select-outlined"
             onChange={(e) => addNewPost(e, "category")}
             label="Category"
+            defaultValue="Other"
         >
             
-          <MenuItem value={"Cafe"}>Cafe</MenuItem>
-          <MenuItem value={"Sports"}>Sports</MenuItem>
-          <MenuItem value={"Outdoor"}>Outdoor</MenuItem>
-          <MenuItem value={"Meet Up"}>Meet Up</MenuItem>
-          <MenuItem value={"Science"}>Science</MenuItem>
-          <MenuItem value={"Other"}>Other</MenuItem>
+          <MenuItem value={"Cafe"}    >Cafe</MenuItem>
+          <MenuItem value={"Chat"}    >Chat</MenuItem>
+          <MenuItem value={"Gym"}     >Gym</MenuItem>
+          <MenuItem value={"Games"}   >Games</MenuItem>
+          <MenuItem value={"Meet Up"} >Meet Up</MenuItem>
+          <MenuItem value={"Outdoor"} >Outdoor</MenuItem>
+          <MenuItem value={"Sports"}  >Sports</MenuItem>
+          <MenuItem value={"Science"} >Science</MenuItem>
+          <MenuItem value={"Other"}   >Other</MenuItem>
         </Select>
       </FormControl>
-
       <TextField 
         label="Location" 
         variant="outlined" 
@@ -118,31 +121,29 @@ function Form(props) {
       <div className="date-entry"> 
         <div className={classes.container} noValidate>
           <TextField
-            id="datetime-local-start"
-            label="Start Date/Time"
-            type="datetime-local"
+            id="date-start"
+            label="Start Date"
+            type="date"
             className={classes.textField}
             // required={true}
             InputLabelProps={{
               shrink: true,
             }}
-            onChange={(e) => addNewPost(e, "start_datetime")}
+            onChange={(e) => addNewPost(e, "start_date")}
           />
         </div>
         <div className={classes.container} noValidate>
           <TextField
-            id="datetime-local-end"
-            label="End Date/Time"
-            type="datetime-local"
+            id="date-end"
+            label="End Date"
+            type="date"
             className={classes.textField}
             InputLabelProps={{
               shrink: true,
             }}
-            onChange={(e) => addNewPost(e, "end_datetime")}
+            onChange={(e) => addNewPost(e, "end_date")}
           />
         </div>
-<<<<<<< Updated upstream
-=======
         <div className={classes.container} noValidate>
           <TextField
             id="time-start"
@@ -153,6 +154,7 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
+            onChange={onChange={(e) => addNewPost(e, "start_time")}}
           />
         </div>
         <div className={classes.container} noValidate>
@@ -164,10 +166,9 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
+            onChange={onChange={(e) => addNewPost(e, "end_time")}}
           />
         </div>
-        
->>>>>>> Stashed changes
       </div>
       <div className="text-area-div">
         <TextField
