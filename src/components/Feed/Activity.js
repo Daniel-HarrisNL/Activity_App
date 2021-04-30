@@ -18,6 +18,7 @@ function Activity(props) {
       <img className="act-pic" src={imgURI} alt={props.img_desc} />
       <div className="act-info">
         <div className="act-title">{props.title.replace(/&#39;/g, "'").replace(/&#8208;/g, "-").replace(/&#44;/g, ",")}</div>
+        <div className="act-date">{props.date.slice(0,10)}</div>
         <div className="act-avatars">
           <div>{props.category} -&nbsp;</div>
           <img className="act-comment" src={Comments} alt="Comments" />

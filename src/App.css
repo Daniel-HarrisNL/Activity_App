@@ -190,6 +190,10 @@ button {
   border-radius: 5px;
 }
 
+.act-date {
+  color: #808080;
+}
+
 .act-comment {
   height: 22px;
 }
