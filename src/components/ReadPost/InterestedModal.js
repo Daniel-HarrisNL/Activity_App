@@ -2,10 +2,8 @@ import React from 'react';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import IconButton from '@material-ui/core/IconButton';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
 
  function InterestedModal() {
   const useStyles = makeStyles((theme) => ({
