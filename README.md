@@ -1,10 +1,6 @@
-# Packages to install (you can copy and paste each line into the terminal)
-npm install react-router-dom\
-npm install @material-ui/core\
-npm install @material-ui/icons\
-npm install @fortawesome/fontawesome-svg-core\
-npm install @fortawesome/free-solid-svg-icons\
-npm install @fortawesome/react-fontawesome
+# run command below to make sure all packages are installed and up-to-date
+
+npm install
 
 # Getting Started with Create React App
 
