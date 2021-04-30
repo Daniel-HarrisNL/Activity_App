@@ -15,6 +15,7 @@ import Science from "../../assets/rocket.png";
 import Chat    from "../../assets/chat.png";
 
 function ScrollMenu(props) {
+  const searchCat = props.category;
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [barTitle, setBarTitle] = useState("Category")
 
