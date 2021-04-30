@@ -35,7 +35,7 @@ function Feed(props) {
           return (
             <Activity 
               id={e.id} 
-              img_desc={e.img_desc}
+              img_desc={e.tags}
               title={e.title}
               category={e.category}
             />

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import '../../App.css';
 
 import InterestedModal from './InterestedModal';
@@ -16,12 +17,43 @@ import ReplyCard from './ReplyCard';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { makeStyles } from '@material-ui/core/styles';
-import useMUIFixer from '../../useMaterialUiStyleFixer'
+import useMUIFixer from '../../useMaterialUiStyleFixer';
 
-import avatar from '../../assets/avatar.png';
+import avatar from '../../assets/avatar1.png';
 
-function CommentCard(props) {
-  console.log(props);
+function CommentCard() {
+
+  const [postArray, setPostArray] = useState([]);
+  const [commentsArray, setCommentsArray] = useState([]);
+  const [refreshComments, setRefreshComments] = useState(0);
+
+  const { postID } = useParams();
+
+  useEffect(() => {
+    getPost();
+  }, []);
+
+  const getPost = async () => {
+
+    const response = await axios.get(`http://johnny-o.net/activity-app/php-react/get-posts.php?id=${postID}`);
+
+    setPostArray(response.data)
+    // console.log(response.data)
+  }
+
+  useEffect(() => {
+    getComments();
+  }, [refreshComments]);
+
+  const getComments = async () => {
+
+    const response = await axios.get(`http://johnny-o.net/activity-app/php-react/comments.php?post_id=${postID}`);
+
+    setCommentsArray(response.data)
+    // console.log(response.data)
+  }
+
+
   const theme = createMuiTheme({
     palette: {
       primary: {
@@ -65,11 +97,8 @@ function CommentCard(props) {
       margin: 'auto'
     },
     textArea: {
-      // border: '1px solid rgba(0, 0, 0, 0.28)',
       boxSizing: 'border-box',
-      // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.29)',
       textAlign:'left',
-      // backgroundColor: 'rgba(0, 0, 0, 0.29)'
       fontSize:'1.1rem'
     },
     viewHeight: {
@@ -95,81 +124,66 @@ function CommentCard(props) {
     </form>);
   }
   
-  
-  function Posts(props){
-    let posts = props.postData;
-    let postsHtml = []
-    for(let i = 0; i < posts.length; i++){
-      let post = posts[i];
-      postsHtml.push(<div>
-        <h3>{post.name}</h3>
-        <p>{post.message}</p>
-      </div>)
-    }
-  
-    return (
-      <main>
-        <h1>Posts:</h1>
-        {postsHtml}
-      </main>
-    )
+  const classes = useStyles();
+  // Uses url parameter ID to get the correct post data
+  // console.log(postID);
+
+  useMUIFixer();
+  if(postArray.length === 0){
+    return <Typography>Loading... please wait!</Typography>
   }
+  
+  let postTitle = postArray.title;
+  let postCategory = postArray.category;
+  let postLocation = postArray.location;
+  let postDescription = postArray.description;
+  let postStartDate = postArray.start_datetime;
+  let postEndDate = postArray.end_datetime;
+  
 
-    const classes = useStyles();
-    //Uses url parameter ID to get the correct post data
-    const { postID } = useParams();
-    console.log(postID);
-    console.log(props.feedData)
-
-    useMUIFixer();
-    if(props.feedData.length === 0){
-      return <Typography>Loading... please wait!</Typography>
-    }
-
-    let postArray = props.feedData;
-    let postContent = postArray.find(post => post.id === postID)
-    
-    let postTitle = postContent.title;
-    let postCategory = postContent.category;
-    let postLocation = postContent.location;
-    let postDescription = postContent.description;
-    let postStartDate = postContent.startDate;
-    let postEndDate = postContent.endDate;
-    
-
-    return (
-     
-      <div>
-      {/* <div className={classes.viewHeight}> */}
-        <div className="main-ext ">
-    <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
+  return (
+    <div>
+      <div className="main-ext ">
+        <Card className={classes.root}>
+          <CardHeader
+            avatar={
+              <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
+            }
+            className={classes.title}
+            title={ <Typography gutterBottom variant="h5" component="h2">
+              {postTitle}
+            </Typography>}
+            subheader={<Typography gutterBottom variant="h6" style={{color: 'lightgrey'}} component="p"> {`${postStartDate.slice(0,10)} | ${postLocation}`} </Typography>}
+          />
+          <Divider className={classes.dividerColor} />
+          <CardContent>
+            <ThemeProvider theme={theme}>
+            <Typography color="primary" component="p" className={classes.textArea}>
+              {postDescription} 
+            </Typography>
+            </ThemeProvider>
+          </CardContent>
+        
+        </Card>
+        {commentsArray.length > 0 ? commentsArray.map((e)=>{
+          return (
+            <ReplyCard
+              commentID = {e.id}
+              userID = {e.user_id}
+              userName = {e.user_name}
+              datetime = {e.comment_datetime}
+              comment = {e.comment}
+            />);
+          }) : null
         }
-        className={classes.title}
-        title={ <Typography gutterBottom variant="h5" component="h2">
-          {postTitle}
-        </Typography>}
-        subheader={<Typography gutterBottom variant="h6" style={{color: 'lightgrey'}} component="p"> {`${postStartDate} | ${postLocation}`} </Typography>}
-      />
-      <Divider className={classes.dividerColor} />
-      <CardContent>
-        <ThemeProvider theme={theme}>
-        <Typography color="primary" component="p" className={classes.textArea}>
-          {postDescription} 
-        </Typography>
-        </ThemeProvider>
-      </CardContent>
-    
-    </Card>
-    <ReplyCard/>
-    {/* </div> */}
-    </div>
-    <div className="post-buttons single-post">
-      <InterestedModal />
-      <ReplyModal/>
-    </div>
+      </div>
+      <div className="post-buttons single-post">
+        <InterestedModal />
+        <ReplyModal
+          postID = {postID}
+          refresh = {setRefreshComments}
+        />
+      </div>
     </div>
     
     )
