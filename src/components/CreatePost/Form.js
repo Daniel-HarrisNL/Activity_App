@@ -108,8 +108,7 @@ function Form(props) {
             label="Category"
             defaultValue=" "
         >
-            
-          <MenuItem value={" "}       > </MenuItem>
+          <MenuItem value={" "}       > </MenuItem>            
           <MenuItem value={"Cafe"}    >Cafe</MenuItem>
           <MenuItem value={"Chat"}    >Chat</MenuItem>
           <MenuItem value={"Gym"}     >Gym</MenuItem>
