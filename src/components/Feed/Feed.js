@@ -27,7 +27,7 @@ function Feed(props) {
               img_desc={e.tags}
               title={e.title}
               category={e.category}
-              
+              date={e.start_datetime}              
             />
             );
           }) :
@@ -38,6 +38,7 @@ function Feed(props) {
               img_desc={e.tags}
               title={e.title}
               category={e.category}
+              date={e.start_datetime}
             />
             );
           })  

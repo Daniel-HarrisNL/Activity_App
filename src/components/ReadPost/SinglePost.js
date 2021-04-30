@@ -140,8 +140,6 @@ function CommentCard() {
   let postLocation = postArray.location.replace(/&#39;/g, "'").replace(/&#8208;/g, "-").replace(/&#44;/g, ",");
   let postDescription = postArray.description.replace(/&#39;/g, "'").replace(/&#8208;/g, "-").replace(/&#44;/g, ",");
   let postStartDate = postArray.start_datetime;
-  // let postEndDate = postArray.end_datetime;
-  
 
   return (
     <div>
