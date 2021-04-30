@@ -4,7 +4,6 @@ import Buttons from './Buttons';
 import { FontAwesomeIcon as FAIcon} from '@fortawesome/react-fontawesome';
 import { faVideo } from '@fortawesome/free-solid-svg-icons';
 import { faImages } from '@fortawesome/free-solid-svg-icons';
-import { images } from "../Avatars";
 import { useImage } from 'react-image'
 
 function TestReplyCard() {
@@ -12,7 +11,7 @@ function TestReplyCard() {
   let id = 2;
   let image = require('../../assets/avatar' + id + '.png').default;
 
-  console.log(image)
+  // console.log(image)
 
   return (
     <div className="main-ext stretched">

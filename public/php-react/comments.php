@@ -1,5 +1,7 @@
 <?php
 
+$slash_replace = array("\"" => "&#34;", "'" => "&#39;", "," => "&#44;", "-" => "&#8208;");
+
 require "dbinfo.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -23,7 +25,7 @@ switch ($method) {
       $user_id     = $_POST["user_id"];
       $user_name   = strtr($_POST["user_name"], $slash_replace);
       $datetime    = date("Y-m-d H:m:s",time());
-      $comment     = $_POST["comment"];  
+      $comment     = strtr($_POST["comment"], $slash_replace);  
 
       $sql = "INSERT INTO post_comments VALUES ('', '$post_id', '$user_id', '$user_name', '$datetime', '$comment')"; 
 

@@ -8,13 +8,9 @@ import Footer from "./components/Footer";
 import Feed from "./components/Feed/Feed";
 import Post from "./components/CreatePost/Post";
 import SinglePost from "./components/ReadPost/SinglePost";
-import Test from "./components/CreatePost/Test";
-import {createMuiTheme} from '@material-ui/core';
-import {StylesProvider, ThemeProvider} from '@material-ui/core/styles';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
-  console.log("RENDER")
   let userID = sessionStorage.getItem("currentUserID");
   if (!userID) {
     sessionStorage.setItem("currentUserID", 1);
@@ -32,7 +28,7 @@ function App() {
     const response = await axios.get("http://johnny-o.net/activity-app/php-react/get-posts.php");
 
     setfeedArray(response.data)
-    console.log(response.data)
+    // console.log(response.data)
   }
 
   return (
@@ -47,7 +43,6 @@ function App() {
             <Route path="/feed"       exact   render={()=><Feed feedData={feedArray}/>}/>
             <Route path="/feed/:cat"          render={()=><Feed feedData={feedArray}/>}/>
             <Route path="/post"               render={()=><Post feedData={feedArray}/>}/>
-            <Route path="/test"               component={Test}/>
             <Route path="/singlepost/:postID" render={()=><SinglePost feedData={feedArray}/>} />
           </Switch>
         </div>

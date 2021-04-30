@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useHistory } from "react-router-dom";
 
 
@@ -40,8 +40,6 @@ function Form(props) {
 
   const [newPost, setNewPost] = useState({"user_id": userID, "user_name": userName});
 
-  const [newID, setNewID] = useState();
-
   // Storing the Insert Post Form Data.
   const addNewPost = (e, field) => {
     setNewPost({
@@ -71,9 +69,7 @@ function Form(props) {
       return response.text()
     })
     .then((text) => {
-      let newNewId = text;//parseInt(text)
-      setNewID(newNewId);
-      console.log(newNewId);
+      let newNewId = text;
       history.push(`/singlepost/${newNewId}`)
     }, (error) => {
       console.log(error);
@@ -165,7 +161,6 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
-            required={true}
             onChange={(e) => addNewPost(e, "start_time")}
           />
         </div>

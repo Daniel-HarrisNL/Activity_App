@@ -25,6 +25,7 @@ function CommentCard() {
 
   const [postArray, setPostArray] = useState([]);
   const [commentsArray, setCommentsArray] = useState([]);
+  const [refreshComments, setRefreshComments] = useState(0);
 
   const { postID } = useParams();
 
@@ -37,19 +38,19 @@ function CommentCard() {
     const response = await axios.get(`http://johnny-o.net/activity-app/php-react/get-posts.php?id=${postID}`);
 
     setPostArray(response.data)
-    console.log(response.data)
+    // console.log(response.data)
   }
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [refreshComments]);
 
   const getComments = async () => {
 
     const response = await axios.get(`http://johnny-o.net/activity-app/php-react/comments.php?post_id=${postID}`);
 
     setCommentsArray(response.data)
-    console.log(response.data)
+    // console.log(response.data)
   }
 
 
@@ -124,8 +125,8 @@ function CommentCard() {
   }
   
   const classes = useStyles();
-  //Uses url parameter ID to get the correct post data
-  console.log(postID);
+  // Uses url parameter ID to get the correct post data
+  // console.log(postID);
 
   useMUIFixer();
   if(postArray.length === 0){
@@ -178,7 +179,10 @@ function CommentCard() {
       </div>
       <div className="post-buttons single-post">
         <InterestedModal />
-        <ReplyModal/>
+        <ReplyModal
+          postID = {postID}
+          refresh = {setRefreshComments}
+        />
       </div>
     </div>
     

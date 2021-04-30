@@ -17,6 +17,11 @@ import Chat    from "../../assets/chat.png";
 function ScrollMenu(props) {
   let searchCat = props.category;
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [barTitle, setBarTitle] = useState("Category")
+
+  if (searchCat > 0) {
+    setBarTitle(previousValue => previousValue + " - " + searchCat);
+  }
     
     const openDrawer = () => {
       setDrawerOpen(true)
@@ -40,7 +45,7 @@ function ScrollMenu(props) {
     return (
       <>
         <button className="category-btn black-btn" id="category-button" onClick={openDrawer} >
-          Category
+          {barTitle}
         </button>
         <Drawer open={drawerOpen} onClose={closeDrawer}>
           <List>
