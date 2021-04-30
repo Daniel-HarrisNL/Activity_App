@@ -49,6 +49,8 @@ function NavBar() {
     setCurrentUserImg(newUserImg);
     setAltDesc(newUserTag);
 
+    console.log(currentUserName)
+
     sessionStorage.setItem("currentUserID", newUserID);
     sessionStorage.setItem("currentName", newUserName);
   }
@@ -74,7 +76,7 @@ function NavBar() {
               let image = require('../assets/avatar' + e.id + '.png').default;
               let changeID = e.id;
               return (
-                <button onClick={() => changeUser(changeID)}>{e.name} <img className="dropdown-avatar" src={image} alt={e.name}/></button>
+                <button key={changeID} onClick={() => changeUser(changeID)}>{e.name} <img className="dropdown-avatar" src={image} alt={e.name}/></button>
                 );
               })}
           </div>
