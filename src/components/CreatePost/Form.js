@@ -102,9 +102,9 @@ function Form(props) {
             onChange={(e) => addNewPost(e, "category")}
             required={true}
             label="Category"
-            defaultValue="Other"
+            defaultValue=" "
         >
-            
+          <MenuItem value={" "}       > </MenuItem>            
           <MenuItem value={"Cafe"}    >Cafe</MenuItem>
           <MenuItem value={"Chat"}    >Chat</MenuItem>
           <MenuItem value={"Gym"}     >Gym</MenuItem>
