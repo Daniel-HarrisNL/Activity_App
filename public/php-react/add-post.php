@@ -25,10 +25,10 @@ switch ($method) {
     $user_id     = $_POST["user_id"];
     $user_name   = strtr($_POST["user_name"], $slash_replace);
     $datetime    = date("Y-m-d H:m:s",time());
-    $title       = $_POST["title"];
+    $title       = strtr($_POST["title"], $slash_replace);
     $category    = $_POST["category"];
-    $location    = $_POST["location"];
-    $description = $_POST["description"];
+    $location    = strtr($_POST["location"], $slash_replace);
+    $description = strtr($_POST["description"], $slash_replace);
     $start_date  = $_POST["start_date"];
     $end_date    = $_POST["end_date"];
     $start_time  = $_POST["start_time"];

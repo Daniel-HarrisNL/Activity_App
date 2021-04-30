@@ -21,11 +21,13 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
+    rowGap: '4px',
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 176,
+    marginTop: 8,
   },
 }));
 
@@ -37,6 +39,8 @@ function Form(props) {
   // let dataArray = props.feedData;
   let userID   = sessionStorage.getItem("currentUserID");
   let userName = sessionStorage.getItem("currentName");
+
+  console.log(userID, userName);
 
   const [newPost, setNewPost] = useState({"user_id": userID, "user_name": userName});
 
@@ -102,14 +106,15 @@ function Form(props) {
             onChange={(e) => addNewPost(e, "category")}
             required={true}
             label="Category"
-            defaultValue="Other"
+            defaultValue=" "
         >
             
+          <MenuItem value={" "}       > </MenuItem>
           <MenuItem value={"Cafe"}    >Cafe</MenuItem>
           <MenuItem value={"Chat"}    >Chat</MenuItem>
           <MenuItem value={"Gym"}     >Gym</MenuItem>
           <MenuItem value={"Games"}   >Games</MenuItem>
-          <MenuItem value={"Meet Up"} >Meet Up</MenuItem>
+          <MenuItem value={"MeetUp"}  >Meet Up</MenuItem>
           <MenuItem value={"Outdoor"} >Outdoor</MenuItem>
           <MenuItem value={"Sports"}  >Sports</MenuItem>
           <MenuItem value={"Science"} >Science</MenuItem>

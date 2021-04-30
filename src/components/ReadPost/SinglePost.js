@@ -19,8 +19,6 @@ import { ThemeProvider } from '@material-ui/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import useMUIFixer from '../../useMaterialUiStyleFixer';
 
-import avatar from '../../assets/avatar1.png';
-
 function CommentCard() {
 
   const [postArray, setPostArray] = useState([]);
@@ -107,22 +105,22 @@ function CommentCard() {
     
   }));
 
-  function MakePost(props){
-    const [message, setMessage] = useState("");
+  // function MakePost(props){
+  //   const [message, setMessage] = useState("");
   
-    const onButtonClick = ()=>{
-      let post = {
+  //   const onButtonClick = ()=>{
+  //     let post = {
        
-        "message": message
-      }
-      props.addNewPost(post);
-    }
+  //       "message": message
+  //     }
+  //     props.addNewPost(post);
+  //   }
   
-    return (<form>
-      <input onChange={(e)=>setMessage(e.target.value)} type="text" placeholder="message" />
-      <button onClick={onButtonClick} type="button">Submit!</button>
-    </form>);
-  }
+  //   return (<form>
+  //     <input onChange={(e)=>setMessage(e.target.value)} type="text" placeholder="message" />
+  //     <button onClick={onButtonClick} type="button">Submit!</button>
+  //   </form>);
+  // }
   
   const classes = useStyles();
   // Uses url parameter ID to get the correct post data
@@ -133,12 +131,16 @@ function CommentCard() {
     return <Typography>Loading... please wait!</Typography>
   }
   
-  let postTitle = postArray.title;
-  let postCategory = postArray.category;
-  let postLocation = postArray.location;
-  let postDescription = postArray.description;
+  let postTitle = postArray.title.replace(/&#39;/g, "'").replace(/&#8208;/g, "-").replace(/&#44;/g, ",");
+  let postUserID = postArray.user_id;
+  let postUserAvatar = require('../../assets/avatar' + postUserID + '.png').default
+  let postUserName = postArray.user_name.replace(/&#39;/g, "'").replace(/&#8208;/g, "-").replace(/&#44;/g, ",");
+
+  // let postCategory = postArray.category;
+  let postLocation = postArray.location.replace(/&#39;/g, "'").replace(/&#8208;/g, "-").replace(/&#44;/g, ",");
+  let postDescription = postArray.description.replace(/&#39;/g, "'").replace(/&#8208;/g, "-").replace(/&#44;/g, ",");
   let postStartDate = postArray.start_datetime;
-  let postEndDate = postArray.end_datetime;
+  // let postEndDate = postArray.end_datetime;
   
 
   return (
@@ -147,7 +149,7 @@ function CommentCard() {
         <Card className={classes.root}>
           <CardHeader
             avatar={
-              <Avatar src={avatar} aria-label="avatar" className={classes.avatar}/> 
+              <Avatar src={postUserAvatar} aria-label={postUserName} className={classes.avatar}/> 
             }
             className={classes.title}
             title={ <Typography gutterBottom variant="h5" component="h2">

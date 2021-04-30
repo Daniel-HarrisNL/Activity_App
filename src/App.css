@@ -118,6 +118,7 @@ button {
   flex-direction: column;
   justify-content: space-between;
   padding: 8px;
+  column-gap: 4px;
 }
 
 .main::-webkit-scrollbar {
