@@ -2,6 +2,7 @@
   background-color: #4892bc;
   border: none;
   cursor: pointer;
+  padding: 0;
 }
 
 .dropdown {
@@ -14,7 +15,7 @@
   position: absolute;
   right: 0;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
