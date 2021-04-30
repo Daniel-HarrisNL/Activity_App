@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useHistory } from "react-router-dom";
+
 
 import Buttons from './Buttons';
 import Tags from './Tags';
-import axios from "axios"
 
 import { FontAwesomeIcon as FAIcon} from '@fortawesome/react-fontawesome';
 import { faVideo } from '@fortawesome/free-solid-svg-icons';
@@ -29,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Form(props) {
+
+  let history = useHistory();
   // State data currently doesn't work properly. Does not harm the program as is however.
   // The attempt is to submit the form data and push to the main feedArray, and re-render the feed with the new post.
   // let dataArray = props.feedData;
@@ -52,25 +55,26 @@ function Form(props) {
     e.target.reset();
     console.log(newPost);
   };
-
-  const getFormData = object => Object.keys(object).reduce((formData, key) => {
-    formData.append(key, object[key]);
-    return formData;
-  }, new FormData());
   
   const insertPost = (newPost) => {
-    let newPostData = getFormData(newPost);
-    console.log("NEW POST:")
-    console.log(newPost);
     fetch("http://johnny-o.net/activity-app/php-react/add-post.php", {
       method: "POST",
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(newPost),
     })
+    .then((response)=>{
+      return response.text()
+    })
+    .then((text) => {
+      let newNewId = text;
+      history.push(`/singlepost/${newNewId}`)
+    }, (error) => {
+      console.log(error);
+    });
+
   };
  
   const classes = useStyles();
@@ -86,7 +90,7 @@ function Form(props) {
         label="Title" 
         variant="outlined" 
         fullWidth={true}
-        // required={true}
+        required={true}
         onChange={(e) => addNewPost(e, "title")}
       />
         
@@ -96,6 +100,7 @@ function Form(props) {
             labelId="cat-select-outlined-label"
             id="cat-select-outlined"
             onChange={(e) => addNewPost(e, "category")}
+            required={true}
             label="Category"
             defaultValue="Other"
         >
@@ -115,6 +120,7 @@ function Form(props) {
         label="Location" 
         variant="outlined" 
         fullWidth={true}
+        required={true}
         onChange={(e) => addNewPost(e, "location")}
       />
       
@@ -129,6 +135,7 @@ function Form(props) {
             InputLabelProps={{
               shrink: true,
             }}
+            required={true}
             onChange={(e) => addNewPost(e, "start_date")}
           />
         </div>
@@ -177,7 +184,7 @@ function Form(props) {
           rows={4}
           variant="outlined"
           fullWidth={true}
-          // required={true}
+          required={true}
           onChange={(e) => addNewPost(e, "description")}
         />
         <div className="tags">

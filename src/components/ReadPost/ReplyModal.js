@@ -6,10 +6,16 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
+function ReplyModal(props) {
 
+  let postID   = props.postID;
+  let userID   = sessionStorage.getItem("currentUserID");
+  let userName = sessionStorage.getItem("currentName");
 
+  // console.log(postID, userID, userName)
 
-function ReplyModal() {
+  const [newComment, setNewComment] = useState({"user_id": userID, "user_name": userName, "post_id": postID});
+
   const useStyles = makeStyles((theme) => ({
     modal: {
       display: 'flex',
@@ -42,13 +48,53 @@ function ReplyModal() {
     setOpen(false);
   };
 
+  // Storing the Comment Data.
+  const addNewComment = (e, field) => {
+    setNewComment({
+      ...newComment,
+      [field]: e.target.value,
+    });
+  };
+
+  // Inserting a new post into the Database.
+  const submitComment = (e) => {
+    e.preventDefault();
+    insertComment(newComment);
+    e.target.reset();
+    // console.log(newComment);
+  };
+
+  const insertComment = (newComment) => {
+    fetch("http://johnny-o.net/activity-app/php-react/comments.php", {
+      method: "POST",
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newComment),
+    })
+    .then((response)=>{
+      return response.text()
+    })
+    .then((text) => {
+      props.refresh(previousValue => previousValue + 1)
+      handleClose();
+      console.log(text);
+    }, (error) => {
+      console.log(error);
+    });
+  };  
+
+  // comments table
+  // id | post_id | user_id | user_name | comment_datetime | comment
+
   return (
     <div>
      
       <button className="btn large blue-btn" onClick={handleOpen} aria-label="Comment">
       Comment&nbsp;<QuestionAnswerOutlinedIcon fontSize="medium" style={{color: 'red'}} />
-          
       </button>
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -62,19 +108,20 @@ function ReplyModal() {
         }}
       >
         <Fade in={open}>
-
-          <div className={classes.paper} style={{zIndex: 1}}>
+          <div className={classes.paper} style={{zIndex: 10}}>
+          <form onSubmit={submitComment}>
             <TextField
-                
                 label="Reply"
                 multiline
                 rows={4}
                 variant="outlined"
                 fullWidth={true}
                 required={true}
+                onChange={(e) => addNewComment(e, "comment")}
             />
-            <button onClick={handleClose} className="btn blue-btn large" type="button" title="Submit">Submit</button>
-        </div>
+            <button className="btn blue-btn large" type="submit" title="Submit">Submit</button>
+            </form>
+          </div>
         </Fade>
       </Modal>
     </div>

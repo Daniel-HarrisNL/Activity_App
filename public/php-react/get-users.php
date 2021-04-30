@@ -3,7 +3,6 @@
 require "dbinfo.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
-// $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 
 
 if (!$con) {
@@ -12,12 +11,7 @@ if (!$con) {
 
 switch ($method) {
     case 'GET':
-      $id = $_GET['id'];
-      if (!$id) {
-        $sql = "SELECT * from activity_posts ORDER BY start_datetime ASC"; 
-      } else {
-        $sql = "SELECT * from activity_posts WHERE id='$id'"; 
-      }
+      $sql = "SELECT * from app_users"; 
       break;
 }
 
@@ -31,11 +25,11 @@ if (!$result) {
 }
 
 if ($method == 'GET') {
-    if (!$id) echo '[';
+    echo '[';
     for ($i=0 ; $i<mysqli_num_rows($result) ; $i++) {
       echo ($i>0?',':'').json_encode(mysqli_fetch_object($result));
     }
-    if (!$id) echo ']';
+    echo ']';
   } else {
     echo mysqli_affected_rows($con);
   }
