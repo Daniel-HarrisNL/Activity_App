@@ -1,0 +1,35 @@
+.reply-card {
+  background-color: #e8e8e8;
+  display: flex;
+  flex-direction: row;
+  margin: 8px 0 0 0;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+              0px 1px 1px 0px rgb(0 0 0 / 14%),
+              0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+.r-c-avatar {
+  height: 56px;
+  padding: 16px 0 0 16px;
+}
+
+.r-c-date {
+  color: gray;
+}
+
+.reply-card-text {
+  padding: 8px 0 0 16px;
+}
+
+.reply-card-text > h4 {
+  margin: 0;
+  text-align: left;
+}
+
+.reply-card-text > p {
+  text-align: left;
+  margin: 8px 0;
+}
+

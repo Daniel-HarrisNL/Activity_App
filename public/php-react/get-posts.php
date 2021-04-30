@@ -12,7 +12,12 @@ if (!$con) {
 
 switch ($method) {
     case 'GET':
-      $sql = "SELECT * from activity_posts ORDER BY start_datetime ASC"; 
+      $id = $_GET['id'];
+      if (!$id) {
+        $sql = "SELECT * from activity_posts ORDER BY start_datetime ASC"; 
+      } else {
+        $sql = "SELECT * from activity_posts WHERE id='$id'"; 
+      }
       break;
 }
 
@@ -25,7 +30,6 @@ if (!$result) {
   die(mysqli_error($con));
 }
 
-$id = false;
 if ($method == 'GET') {
     if (!$id) echo '[';
     for ($i=0 ; $i<mysqli_num_rows($result) ; $i++) {
