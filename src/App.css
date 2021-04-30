@@ -86,6 +86,11 @@ button {
   background-color: #ffffff;
   border-top: 0.5px solid #ddddddaa;
 }
+.margin-buffer {
+  height: 8px;
+  margin: 0;
+  padding: 0;
+}
 
 /* TO DELETE */
 .nav-bar {
@@ -94,7 +99,7 @@ button {
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 8px;
   background: #4892bc;
   border-bottom: 0.5px solid #ddddddaa;
 }
@@ -126,7 +131,7 @@ button {
 }
 
 .stretched {
-  margin-top: 8px;
+  margin-top: 4px;
   height: calc(100vh - 132px);
   min-height: 620px;
 }
@@ -151,7 +156,7 @@ button {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   padding: 8px;
-  margin: 16px;
+  margin: 8px 8px 8px 24px;
   justify-content: center;
   align-items: stretch;
   cursor: pointer;

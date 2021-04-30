@@ -96,8 +96,9 @@ function Form(props) {
         fullWidth={true}
         required={true}
         onChange={(e) => addNewPost(e, "title")}
+        margin="dense"
       />
-        
+      <p class="margin-buffer">&nbsp;</p>
       <FormControl variant="outlined" className="text-field-margin" fullWidth={true}>
         <InputLabel>Category</InputLabel>
         <Select
@@ -120,6 +121,7 @@ function Form(props) {
           <MenuItem value={"Other"}   >Other</MenuItem>
         </Select>
       </FormControl>
+      <p class="margin-buffer">&nbsp;</p>
       <TextField 
         label="Location" 
         variant="outlined" 
@@ -181,6 +183,7 @@ function Form(props) {
           />
         </div>
       </div>
+      <p class="margin-buffer">&nbsp;</p>
       <div className="text-area-div">
         <TextField
           label="Description"
