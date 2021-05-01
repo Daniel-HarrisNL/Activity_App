@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/activity-app/static/css/main.4f850c62.chunk.css",
+    "main.js": "/activity-app/static/js/main.4a4eba9d.chunk.js",
+    "main.js.map": "/activity-app/static/js/main.4a4eba9d.chunk.js.map",
+    "runtime-main.js": "/activity-app/static/js/runtime-main.5e8bdf70.js",
+    "runtime-main.js.map": "/activity-app/static/js/runtime-main.5e8bdf70.js.map",
+    "static/js/2.d486edc4.chunk.js": "/activity-app/static/js/2.d486edc4.chunk.js",
+    "static/js/2.d486edc4.chunk.js.map": "/activity-app/static/js/2.d486edc4.chunk.js.map",
+    "static/js/3.d56beb39.chunk.js": "/activity-app/static/js/3.d56beb39.chunk.js",
+    "static/js/3.d56beb39.chunk.js.map": "/activity-app/static/js/3.d56beb39.chunk.js.map",
+    "index.html": "/activity-app/index.html",
+    "static/css/main.4f850c62.chunk.css.map": "/activity-app/static/css/main.4f850c62.chunk.css.map",
+    "static/js/2.d486edc4.chunk.js.LICENSE.txt": "/activity-app/static/js/2.d486edc4.chunk.js.LICENSE.txt",
+    "static/media/Cafe.jpeg": "/activity-app/static/media/Cafe.b7a1be20.jpeg",
+    "static/media/Chat.jpeg": "/activity-app/static/media/Chat.7cae8ffe.jpeg",
+    "static/media/Games.jpeg": "/activity-app/static/media/Games.50489f50.jpeg",
+    "static/media/Gym.jpeg": "/activity-app/static/media/Gym.ade3ed6d.jpeg",
+    "static/media/MeetUp.jpeg": "/activity-app/static/media/MeetUp.fa994443.jpeg",
+    "static/media/NorthernLogo.17d6d1d9.png": "/activity-app/static/media/NorthernLogo.17d6d1d9.png",
+    "static/media/Other.jpeg": "/activity-app/static/media/Other.1f4de4dc.jpeg",
+    "static/media/Outdoor.jpeg": "/activity-app/static/media/Outdoor.ba92ff42.jpeg",
+    "static/media/Science.jpeg": "/activity-app/static/media/Science.5c9aff8b.jpeg",
+    "static/media/Sports.jpeg": "/activity-app/static/media/Sports.371c6844.jpeg",
+    "static/media/avatar1.png": "/activity-app/static/media/avatar1.89555048.png",
+    "static/media/avatar2.png": "/activity-app/static/media/avatar2.3476b971.png",
+    "static/media/avatar3.png": "/activity-app/static/media/avatar3.2886f017.png",
+    "static/media/avatar4.png": "/activity-app/static/media/avatar4.2fc3ab7a.png",
+    "static/media/avatar5.png": "/activity-app/static/media/avatar5.4abd2d16.png",
+    "static/media/avatar6.png": "/activity-app/static/media/avatar6.acad5500.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5e8bdf70.js",
+    "static/js/2.d486edc4.chunk.js",
+    "static/css/main.4f850c62.chunk.css",
+    "static/js/main.4a4eba9d.chunk.js"
+  ]
+}
